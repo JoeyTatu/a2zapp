@@ -1,0 +1,30 @@
+
+<p id="notice"><%= notice %></p>
+<h1>Department details</h1>
+<h5>Department details for <b><u><%= @department.department_name %></b></u></h5>
+
+<br /><br />
+
+<table class="table-striped table-hover" width='50%'>
+  <tr>
+    <td><strong>Location address:</strong></td>
+     <td><%= link_to @location.address, "https://www.google.com/maps/search/?api=1&query=#{@location.address.parameterize('+')}", :title => "Open #{@location.address} in Google Maps", :style => 'color: #3366BB; text-decoration: underline;' %></td>
+  </tr>
+  <tr>
+      <td><strong>Department name:</strong></td>
+      <td><%= @department.department_name %></td>
+  </tr>
+  <tr>
+      <td><strong>Description:</strong></td>
+      <td><%= @department.description %></td>
+  </tr>
+  <tr>
+      <td><strong>Department phone:</strong>
+      <td><%= link_to @department.department_phone, "tel:#{@department.department_phone}", :title => "Call #{@department.department_phone}", :style => 'color: #3366BB; text-decoration: underline;' %></td>
+  </tr>
+</table>
+
+<br /><br />
+
+<%= link_to 'Edit', edit_location_path(@location), :class => 'btn btn-outline-warning' %> |
+<%= link_to 'Back', locations_path, :class => 'btn btn-outline-primary' %> |

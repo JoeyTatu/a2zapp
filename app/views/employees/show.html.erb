@@ -1,0 +1,63 @@
+
+<p id="notice"><%= notice %></p>
+<h1>Employee details</h1>
+<h5>Employee details for <b><u><%= @employee.first_name %> <%= @employee.last_name %></b></u></h5>
+
+<br /><br />
+
+<table class="table-striped table-hover">
+  <tr>
+      <td><strong>First name:</strong></td>
+      <td><%= @employee.first_name %></td>
+  </tr>
+  <tr>
+      <td><strong>Last name:</strong></td>
+      <td><%= @employee.last_name %></td>
+  </tr>
+  <tr>
+      <td><strong>Started on:</strong></td>
+      <td><%= @employee.started_on %></td>
+  </tr>
+  <tr>
+      <td><strong>Left on:</strong></td>
+      <td><%= @employee.left_on %></td>
+  </tr>
+   <tr>
+      <td><strong>Address:</strong></td>
+      
+      <td><%= link_to @employee.address, "https://www.google.com/maps/search/?api=1&query=#{@employee.address.parameterize('+')}", :title => "Open #{@employee.address} in Google Maps", :style => 'color: #3366BB; text-decoration: underline;' %></td>
+  </tr>
+  <tr>
+      <td><strong>Address2:</strong></td>
+      <td><%= @employee.address2 %></td>
+  </tr>
+  <tr>
+      <td><strong>City:</strong></td>
+      <td><%= @employee.city %></td>
+  </tr>
+  <tr>
+      <td><strong>Postal code:</strong></td>
+      <td><%= @employee.postal_code %></td>
+  </tr>
+  <tr>
+      <td><strong>Country:</strong></td>
+      <td><%= @employee.country %></td>
+  </tr>
+  <tr>
+      <td><strong>Personal phone:</strong>
+      <td><%= link_to @employee.personal_phone, "tel:#{@employee.personal_phone}", :title => "Call #{@employee.personal_phone}", :style => 'color: #3366BB; text-decoration: underline;' %></td>
+  </tr>
+    <tr>
+      <td><strong>Office phone:</strong>
+      <td><%= link_to @employee.office_phone, "tel:#{@employee.office_phone}", :title => "Call #{@employee.office_phone}", :style => 'color: #3366BB; text-decoration: underline;' %></td>
+  </tr>
+  <tr>
+    <td><strong>Works at:</strong></td>
+     <td><%= link_to @location.address, "https://www.google.com/maps/search/?api=1&query=#{@location.address.parameterize('+')}", :title => "Open #{@location.address} in Google Maps", :style => 'color: #3366BB; text-decoration: underline;' %></td>
+  </tr>
+</table>
+
+<br /><br />
+
+<%= link_to 'Edit', edit_location_path(@location), :class => 'btn btn-outline-warning' %> |
+<%= link_to 'Back', locations_path, :class => 'btn btn-outline-primary' %> |

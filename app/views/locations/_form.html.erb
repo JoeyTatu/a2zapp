@@ -1,0 +1,46 @@
+<%= form_for(@location) do |f| %>
+  <% if @location.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+
+      <ul>
+      <% @location.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :location_type %><br>
+    <%= f.select :location_type, options_for_select([["Select one", ""], "Warehouse", "Server building", "Office", "Other"]), :class => 'genForm_dropBox' %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :address2 %><br>
+    <%= f.text_field :address2, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :postal_code %><br>
+    <%= f.text_field :postal_code, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.text_field :country, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :reception_phone %><br>
+    <%= f.text_field :reception_phone, :class => 'form-control' %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Submit', :class => 'btn btn-outline-success' %>
+  </div>
+<% end %>
+<hr />

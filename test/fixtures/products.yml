@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  website_id: MyString
+  barcode: MyString
+  product_name: MyString
+  product_desc: MyText
+  department_id: 
+  size: MyString
+  weight: 9.99
+  product_vendor: MyString
+  quanity_in_stock: 1
+  buy_price_each: 9.99
+  sell_price_each: 9.99
+  order_id: 
+
+two:
+  website_id: MyString
+  barcode: MyString
+  product_name: MyString
+  product_desc: MyText
+  department_id: 
+  size: MyString
+  weight: 9.99
+  product_vendor: MyString
+  quanity_in_stock: 1
+  buy_price_each: 9.99
+  sell_price_each: 9.99
+  order_id: 

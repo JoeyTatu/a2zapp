@@ -1,0 +1,32 @@
+<%= form_for([@location, @department]) do |f| %>
+    <% if @department.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(@department.errors.count, "error") %> prohibited this department from being saved:</h2>
+        <ul>
+            <% @department.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+    <div class="field">
+        <%= f.label :location %><br>
+        <%= f.collection_select(:location,@locations,:id,:address)%>
+    </div>
+    <div class="field">
+        <%= f.label :department_name %><br>
+        <%= f.text_field :department_name, :class => 'form-control' %>
+    </div>
+    <div class="field">
+        <%= f.label :description %><br>
+        <%= f.text_field :description, :class => 'form-control' %>
+      </div>
+    <div class="field">  
+        <%= f.label :department_phone %><br>
+        <%= f.text_field :department_phone, :class => 'form-control' %>
+    </div>
+    <div class="actions">
+        <%= f.submit 'Submit', :class => 'btn btn-outline-success'%>
+    </div>
+<% end %>
+<hr />
