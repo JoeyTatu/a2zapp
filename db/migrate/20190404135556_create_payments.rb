@@ -3,6 +3,7 @@ class CreatePayments < ActiveRecord::Migration
     create_table :payments do |t|
       t.references :customer, index: true, foreign_key: true
       t.string :card_type
+      t.string :card_num
       t.string :transaction_ref
       t.datetime :payment_date
       t.decimal :amount

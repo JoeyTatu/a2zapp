@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>All Departments</h1>
+<h5>Listing all departments in all locations</h5>
+
+<%= link_to 'Go to Locations', locations_path, :class => 'btn btn-outline-info' %> |
+<%= link_to "New Department", nil, :onclick => "alert('To add a new department, click the Location Address link below')", :class => 'btn btn-outline-success' %> |
+<%= link_to 'Home', home_path, :class => 'btn btn-outline-info' %>
+
+<br><br>
+
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Department name</th>
+      <th>Description</th>
+      <th>Department phone</th>
+      <th>Location address</th>
+
+      <th colspan="3"><center>Options</center></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @departments.each do |department| %>
+      <tr>
+        <td><%= department.department_name %></td>
+        <td><%= department.description %></td>
+        <td><%= link_to department.department_phone, "tel:#{department.department_phone}", :title => "Call #{department.department_phone}", :style => 'color: #3366BB; text-decoration: underline;' %></td>
+        <td><%= link_to department.location.address, new_location_department_path(department.location), :style => 'color: #3366BB; text-decoration: underline;', title: "Add new department at #{department.location.address}" %></td>
+        <td><%= link_to 'Show', location_department_path(department.location, department), :class => 'btn btn-outline-info' %></td>
+        <td><%= link_to 'Edit', edit_location_department_path(department.location, department), :class => 'btn btn-outline-info' %></td>
+        <td><%= link_to 'Destroy', location_department_path(department.location, department), :method => :delete, data: { confirm: 'Only admins can delete. Continue?' }, :class => 'btn btn-outline-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,6 +1,4 @@
-class Payment < ActiveRecord::Base
-  belongs_to :customer
-  
+module CardNumHelper
   def encryp(card_num)
     secret = Digest::SHA1.hexdigest(name)
         a = ActiveSupport::MessageEncryptor.new(secret)

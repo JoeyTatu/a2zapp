@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Employees details</h1>
+<h1>All Departments</h1>
+<h5>Listing all departments in all locations</h5>
 
-<%= link_to 'New Employee', new_location_employee_path(@location), :class => 'btn btn-outline-success' %>
-<%= link_to 'Back to location', @location, :class => 'btn btn-outline-info' %>
+<%= link_to 'Go to Locations', locations_path, :class => 'btn btn-outline-info' %> |
+<%= link_to "New Employee", nil, :onclick => "alert('To add a new employee, click the Location Address link below')", :class => 'btn btn-outline-success' %> |
+<%= link_to 'Home', home_path, :class => 'btn btn-outline-info' %>
 
 <br><br>
 
@@ -38,10 +40,10 @@
         </td>
         <td><%= link_to employee.personal_phone, "tel:#{employee.personal_phone}", :title => "Call #{employee.personal_phone}", :style => 'color: #3366BB; text-decoration: underline;' %></td>
         <td><%= link_to employee.office_phone, "tel:#{employee.office_phone}", :title => "Call #{employee.office_phone}", :style => 'color: #3366BB; text-decoration: underline;' %></td>
-        <td><%= @location.address %></td>
-        <td><%= link_to 'Show', location_employee_path(@location, employee), :class => 'btn btn-outline-info' %></td>
-        <td><%= link_to 'Edit', edit_location_employee_path(@location, employee), :class => 'btn btn-outline-info' %></td>
-        <td><%= link_to 'Destroy', location_employee_path(@location, employee), :method => :delete, data: { confirm: 'Only admins can delete. Continue?' }, :class => 'btn btn-outline-danger' %></td>
+        <td><%= link_to employee.location.address, new_location_employee_path(employee.location), :style => 'color: #3366BB; text-decoration: underline;', title: "Add new employee at #{employee.location.address}" %></td>
+        <td><%= link_to 'Show', location_employee_path(employee.location, employee), :class => 'btn btn-outline-info' %></td>
+        <td><%= link_to 'Edit', edit_location_employee_path(employee.location, employee), :class => 'btn btn-outline-info' %></td>
+        <td><%= link_to 'Destroy', location_employee_path(employee.location, employee), :method => :delete, data: { confirm: 'Only admins can delete. Continue?' }, :class => 'btn btn-outline-danger' %></td>
       </tr>
     <% end %>
   </tbody>

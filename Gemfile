@@ -25,6 +25,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 
+gem 'bootstrap'
+
+gem 'momentjs-rails', '>= 2.9.0' 
+
 gem 'bootstrap-datepicker-rails'
 
 # Use ActiveModel has_secure_password

@@ -12,7 +12,6 @@ class DepartmentsController < ApplicationController
     
     #Access all departments for that location
     @departments = @location.departments
-    @address = @location.address
   
   end
 
@@ -84,8 +83,8 @@ class DepartmentsController < ApplicationController
     @department = Department.find(params[:id])
     @department.destroy
     respond_to do |format|
-    format.html { redirect_to location_departments_path(@location) }
-    format.xml { head :ok }
+      format.html { redirect_to location_departments_path(@location) }
+      format.xml { head :ok }
     end
   end
   

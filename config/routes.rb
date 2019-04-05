@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   
   root :to => 'welcome#index'
   
+  get 'cust_nav/index', as: 'cust_nav'
+  
   get 'welcome/index', as: 'home'
 
   get 'payments/index', as: 'payments'
@@ -53,33 +55,26 @@ Rails.application.routes.draw do
   get 'departments/new'
 
   get 'departments/edit'
+  
+  get 'dept_navbar/index', as: 'dept_navbar'
+  
+  get 'empl_navbar/index', as: 'empl_navbar'
 
   resources :locations
   
   resources :locations do
-    resources :departments
-    resources :employees
+    resources :departments do
+      resources :products do
+        resources :orders
+      end
+    end
+    resources :employees do
+      resources :customers do
+        resources :payments
+      end
+    end
   end
   
-  resources :departments do
-    resources :products
-  end
-  
-  resources :orders do
-    resources :products
-  end
-  
-  resources :products do
-    resources :orders
-  end
-  
-  resources :employees do
-    resources :customers # sales rep
-  end
-  
-  resources :customers do
-    resources :payments
-  end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

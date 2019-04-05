@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190402134730) do
+ActiveRecord::Schema.define(version: 20190404135556) do
 
   create_table "customers", force: :cascade do |t|
     t.string   "first_name"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20190402134730) do
   create_table "payments", force: :cascade do |t|
     t.integer  "customer_id"
     t.string   "card_type"
+    t.string   "card_num"
     t.string   "transaction_ref"
     t.datetime "payment_date"
     t.decimal  "amount"

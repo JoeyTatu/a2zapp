@@ -1,0 +1,6 @@
+class EmplNavbarController < ApplicationController
+  def index
+    @departments = Department.all
+    @employees = Employee.all
+  end
+end

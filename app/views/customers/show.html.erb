@@ -1,2 +1,41 @@
-<h1>Customers#show</h1>
-<p>Find me in app/views/customers/show.html.erb</p>
+
+<p id="notice"><%= notice %></p>
+<h1>Customer details</h1>
+<h5>Customer details for <b><u><%= @customer.first_name %> <%= @customer.last_name %></b></u></h5>
+
+<br /><br />
+
+<table class="table-striped table-hover" width='50%'>
+  <tr>
+      <td><strong>Customer name:</strong></td>
+      <td><%= @customer.first_name %> <%= @customer.last_name %></td>
+  </tr>
+  <tr>
+      <td><strong>Last active:</strong></td>
+      <td><%= @customer.last_active %></td>
+  </tr>
+  <tr>
+      <td><strong>Address:</strong></td>
+  		<td>
+    		<%= link_to @customer.address, "https://www.google.com/maps/search/?api=1&query=#{@customer.address.parameterize('+')}", :title => "Open #{@customer.address} in Google Maps", :style => 'color: #3366BB; text-decoration: underline;' %><br>
+    		<%= @customer.address2 %><br>
+    		<%= @customer.city %><br>
+    		<%= @customer.postal_code %><br>
+    		<%= @customer.country %>
+  		</td>
+  </tr>
+  <tr>
+      <td><strong>Phone:</strong></td>
+      <td><%= @customer.phone %></td>
+  </tr>
+  <tr>
+      <td><strong>Sales rep:</strong></td>
+      <td><%= @employee.first_name %> <%= @employee.last_name %></td>
+  </tr>
+</table>
+
+<br /><br />
+
+<%= link_to 'Edit', edit_location_employee_customer_path(@location, @employee, @customer), :class => 'btn btn-outline-warning' %> |
+<%= link_to 'Destroy', location_employee_customer_path, method: :delete, data: { confirm: 'Only admins can delete. Continue?' }, :class => 'btn btn-outline-danger' %> |
+<%= link_to 'Back', location_employees_path(@location), :class => 'btn btn-outline-primary' %>

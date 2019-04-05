@@ -1,2 +1,39 @@
-<h1>Payments#index</h1>
-<p>Find me in app/views/payments/index.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<h1>Payments details</h1>
+<%= link_to 'New Payment', new_location_employee_customer_payment_path(@location, @employee, @customer, @payment), :class => 'btn btn-outline-success' %>
+<%= link_to 'Back to Customer', [@location, @employee, @customer], :class => 'btn btn-outline-info' %>
+
+<br><br>
+
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Customer</th>
+      <th>Card Type</th>
+      <th>Card Number</th>
+      <th>Transaction ref</th>
+      <th>Amount</th>
+
+      <th colspan="3"><center>Options</center></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @payments.each do |payment| %>
+      <% @customer_name = @customer.first_name + ' ' + @customer.last_name %>
+      <tr>
+        <td><%= @customer_name %></td>
+        <td><%= payment.card_type %></td>
+        <td>**** **** **** ****</td>
+        <td><%= payment.transaction_ref %></td>
+        <td><%= payment.payment_date %></td>
+        <td><%= payment.amount %></td>
+        <td><%= link_to @customer_name, @customer, :style => 'color: #3366BB; text-decoration: underline;' %></td>
+        <td><%= link_to 'Show', location_employee_customer_payment_path(@location, @employee, @customer, payment), :class => 'btn btn-outline-info' %></td>
+        <td><%= link_to 'Edit', edit_location_employee_customer_payment_path(@location, @employee, @customer, payment), :class => 'btn btn-outline-info' %></td>
+        <td><%= link_to 'Destroy', location_employee_customer_payment_path(@location, @employee, @customer, payment), :method => :delete, data: { confirm: 'Only admins can delete. Continue?' }, :class => 'btn btn-outline-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

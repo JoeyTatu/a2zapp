@@ -40,7 +40,7 @@ class EmployeesController < ApplicationController
   # Populate an employee associate with location 1 with form data
   # Location will be associated with the employee
   # @employee = @location.employees.build(params.require(:employee).permit!)
-  @employee = @location.employees.build(params.require(:employee).permit(:type, :first_name, :last_name, :started_on, :left_on, :address, :address2, :city, :postal_code, :country, :personal_phone, :office_phone))
+  @employee = @location.employees.build(params.require(:employee).permit(:employee_type, :first_name, :last_name, :started_on, :left_on, :address, :address2, :city, :postal_code, :country, :personal_phone, :office_phone))
     if @employee.save
       # Save the employee successfully
       redirect_to location_employee_url(@location, @employee)
@@ -64,9 +64,9 @@ class EmployeesController < ApplicationController
     @locations = Location.all
     @location = Location.find(params[:location_id])
     @employee = Employee.find(params[:id])
-    if @remployee.update_attributes(params.require(:employee).permit(:type, :first_name, :last_name, :started_on, :left_on, :address, :address2, :city, :postal_code, :country, :personal_phone, :office_phone))
+    if @employee.update_attributes(params.require(:employee).permit(:employee_type, :first_name, :last_name, :started_on, :left_on, :address, :address2, :city, :postal_code, :country, :personal_phone, :office_phone))
       # Save the employee successfully
-      redirect_to location_employee_url(@locaiton, @employee)
+      redirect_to location_employee_url(@location, @employee)
     else
       render :action => 'edit'
     end
@@ -75,7 +75,7 @@ class EmployeesController < ApplicationController
   # DELETE /locations/1/employees/2
   def destroy
     @locations = Location.all
-    @locaiton = Location.find(params[:location_id])
+    @location = Location.find(params[:location_id])
     @employee = Employee.find(params[:id])
     @employee.destroy
     respond_to do |format|

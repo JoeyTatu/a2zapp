@@ -1,2 +1,33 @@
-<h1>Payments#show</h1>
-<p>Find me in app/views/payments/show.html.erb</p>
+
+<p id="notice"><%= notice %></p>
+<h1>Payment details</h1>
+<h5>Payments for <b><u><%= @customer.first_name %> <%= @customer.last_name %></b></u></h5>
+
+<br /><br />
+
+<table class="table-striped table-hover" width='50%'>
+  <tr>
+    <td><strong>Customer name:</strong></td>
+     <td><%= @customer.first_name.first(1) %>. <%= @customer.last_name %> </td>
+  <tr>
+  <tr>
+    <td><strong>Card type:</strong></td>
+     <td><%= @payment.card_type %></td>
+  <tr>
+      <td><strong>Card number:</strong></td>
+      <td>**** **** **** <%= @payment.card_num.last(4) %></td>
+  </tr>
+  <tr>
+      <td><strong>Transaction Ref</strong></td>
+      <td><%= @payment.transaction_ref %></td>
+  </tr>
+  <tr>
+      <td><strong>Amount:</strong>
+      <td>€<%= @payment.amount %></td>
+      </tr>
+</table>
+
+<br /><br />
+
+<%= link_to 'Edit', edit_location_employee_customer_payment_path(@location, @employee, @customer, @payment), :class => 'btn btn-outline-warning' %> |
+<%= link_to 'Back', location_employee_customers_path(@location, @employee, @customer), :class => 'btn btn-outline-primary' %> |

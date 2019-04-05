@@ -1,0 +1,63 @@
+<script>
+$('#datepicker').datepicker({format: 'yyyy-mm-dd'});
+</script>
+
+<%= form_for([@location, @employee, @customer]) do |f| %>
+    <% if @customer.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+        <ul>
+            <% @customer.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+    </div>
+    <% end %>
+    <div class="field">
+        <%= f.label :employee, as: 'Sales Rep' %><br>
+        <%= f.collection_select(:employee, @employees, :id, :full_name) %>
+    </div>
+    <div class="field">
+        <%= f.label :first_name %><br>
+        <%= f.text_field :first_name, :class => 'form-control' %>
+    </div>
+        <div class="field">
+        <%= f.label :last_name %><br>
+        <%= f.text_field :last_name, :class => 'form-control' %>
+    </div>
+    <div class="field">
+        <%= f.label :last_active %><br><br>
+        <%= f.date_field :last_active, :id => 'datepicker', :class => 'form-control' %><br>
+        at<br>
+        <%= f.time_field :last_active, :ignore_date => true %>
+    </div>
+    <div class="field">
+        <%= f.label :address %><br>
+        <%= f.text_field :address, :class => 'form-control' %>
+    </div>
+    <div class="field">
+        <%= f.label :address2 %><br>
+        <%= f.text_field :address2, :class => 'form-control' %>
+    </div>
+    <div class="field">
+        <%= f.label :city %><br>
+        <%= f.text_field :city, :class => 'form-control' %>
+    </div>
+    <div class="field">
+        <%= f.label :postal_code %><br>
+        <%= f.text_field :postal_code, :class => 'form-control' %>
+    </div>
+    <div class="field">
+        <%= f.label :country %><br>
+        <%= f.text_field :country, :class => 'form-control' %>
+    </div>
+    <div class="field">
+        <%= f.label :phone %><br>
+        <%= f.text_field :phone, :class => 'form-control' %>
+    </div>
+    <div class="actions">
+        <%= f.submit 'Submit', :class => 'btn btn-outline-success'%>
+    </div>
+    
+<% end %>
+<hr />

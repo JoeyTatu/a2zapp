@@ -1,0 +1,46 @@
+<script>
+$('#datepicker').datepicker({format: 'yyyy-mm-dd'});
+</script>
+
+<%= form_for([@location, @employee, @customer, @payment]) do |f| %>
+    <% if @payment.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this customer from being saved:</h2>
+        <ul>
+            <% @payment.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+    </div>
+    <% end %>
+    <div class="field">
+        <%= f.label :customer, as: 'Customer' %><br>
+        <%= f.collection_select(:customer, @customers, :id, :full_name) %>
+    </div>
+    <div class="field">
+        <%= f.label :card_type %><br>
+        <%= f.select :card_type, options_for_select([["Select one", ""], "VISA", "Mastercard", "Discover", "American Express"]), :class => 'genForm_dropBox' %>
+    </div>
+        <div class="field">
+        <%= f.label :card_num %><br>
+        <%= f.text_field :card_num, 'encrypt' => 'card_num', :class => 'form-control' %>
+    </div>
+    <div class="field">
+        <%= f.label :transaction_ref %><br>
+        <%= f.text_field :transaction_ref, :class => 'form-control' %>
+    </div>
+    <div class="field">
+        <%= f.label :payment_date %><br><br>
+        <%= f.date_field :payment_date, :id => 'datepicker', :class => 'form-control' %><br>
+        at<br>
+        <%= f.time_field :payment_date, :ignore_date => true %>
+    </div>
+    <div class="field">
+        <%= f.label :amount %><br><small>Format: 123.45</small><br>
+        <%= f.text_field :amount, :class => 'form-control' %>
+    </div>
+        <div class="actions">
+        <%= f.submit 'Submit', :class => 'btn btn-outline-success'%>
+    </div>
+<% end %>
+<hr />
