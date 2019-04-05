@@ -1,2 +1,56 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+
+<p id="notice"><%= notice %></p>
+<h1>Product details</h1>
+<h5>Product details for <b><u><%= @product.product_name %></b></u></h5>
+
+<br /><br />
+
+<table class="table-striped table-hover" width='50%'>
+  <tr>
+      <td><strong>Product name:</strong></td>
+      <td><%= @product.product_name %>></td>
+  </tr>
+  <tr>
+      <td><strong>Product Description:</strong></td>
+      <td><%= @product.product_desc %></td>
+  </tr>
+  <tr>
+      <td><strong>Website URL:</strong></td>
+      <td><%= @product.website_id %></td>
+  </tr>
+  <tr>
+      <td><strong>Barcode:</strong></td>
+      <td><%= @product.barcode %></td>
+  </tr>
+  <tr>
+      <td><strong>Department:</strong></td>
+      <td><%= link_to @department.department_name, location_department_path(@location, @department), title: "Go to the #{@department.department_name} department", :style => 'color: #3366BB; text-decoration: underline;' %><br>
+  </tr>
+  <tr>
+      <td><strong>Size: <small>H x W x L</small></strong></td>
+      <td><%= @product.size %></td>
+  </tr>
+  <tr>
+      <td><strong>Weight:</strong></td>
+      <td><%= @product.weight %>kg</td>
+  </tr>
+  <tr>
+      <td><strong>Product Vendor:</strong></td>
+      <td><%= @product.product_vendor %></td>
+  </tr>
+  <tr>
+  <td><strong>Buy price:</strong></td>
+      <td>€<%= @product.buy_price_each %> each</td>
+  </tr>
+  <tr>
+      <td><strong>Sell price:</strong></td>
+      <td>€<%= @product.sell_price_each %> each</td>
+  </tr>
+</table>
+
+<br /><br />
+
+<%= link_to 'Edit', edit_location_department_product_path(@location, @department, @product), :class => 'btn btn-outline-warning' %> |
+<%= link_to 'Destroy', location_department_product_path, method: :delete, data: { confirm: 'Only admins can delete. Continue?' }, :class => 'btn btn-outline-danger' %> |
+<%= link_to 'Back', location_department_products_path(@location, @department), :class => 'btn btn-outline-primary' %> ||
+<%= link_to 'Show Orders', nil, :class => 'btn btn-outline-success' %> 

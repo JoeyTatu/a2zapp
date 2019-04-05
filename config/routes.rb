@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   
   root :to => 'welcome#index'
   
+  get 'pay_nav/index', as: 'pay_nav'
+  
   get 'cust_nav/index', as: 'cust_nav'
   
   get 'welcome/index', as: 'home'

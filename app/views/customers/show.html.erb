@@ -38,4 +38,5 @@
 
 <%= link_to 'Edit', edit_location_employee_customer_path(@location, @employee, @customer), :class => 'btn btn-outline-warning' %> |
 <%= link_to 'Destroy', location_employee_customer_path, method: :delete, data: { confirm: 'Only admins can delete. Continue?' }, :class => 'btn btn-outline-danger' %> |
-<%= link_to 'Back', location_employees_path(@location), :class => 'btn btn-outline-primary' %>
+<%= link_to 'Back', location_employees_path(@location), :class => 'btn btn-outline-primary' %> ||
+<%= link_to 'Show Payments', location_employee_customer_payments_path(@location, @employee, @customer), :class => 'btn btn-outline-success' %> 

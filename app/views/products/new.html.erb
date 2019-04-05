@@ -1,2 +1,4 @@
-<h1>Products#new</h1>
-<p>Find me in app/views/products/new.html.erb</p>
+<h1>New Product</h1>
+<%= render 'form' %>
+
+<%= link_to 'Back', location_department_products_path(@location, @department), :class => 'btn btn-outline-info' %>

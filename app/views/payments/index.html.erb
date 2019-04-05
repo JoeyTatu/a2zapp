@@ -13,6 +13,7 @@
       <th>Card Type</th>
       <th>Card Number</th>
       <th>Transaction ref</th>
+      <th>Payment Date</th>
       <th>Amount</th>
 
       <th colspan="3"><center>Options</center></th>
@@ -23,16 +24,15 @@
     <% @payments.each do |payment| %>
       <% @customer_name = @customer.first_name + ' ' + @customer.last_name %>
       <tr>
-        <td><%= @customer_name %></td>
+        <td><%= link_to @customer_name, location_employee_customer_path(@location, @employee, @customer), title: "Show customer details for #{@customer_name}", :style => 'color: #3366BB; text-decoration: underline;' %></td>
         <td><%= payment.card_type %></td>
-        <td>**** **** **** ****</td>
+        <td>**** **** **** <%= payment.card_num.last(4) %></td>
         <td><%= payment.transaction_ref %></td>
         <td><%= payment.payment_date %></td>
-        <td><%= payment.amount %></td>
-        <td><%= link_to @customer_name, @customer, :style => 'color: #3366BB; text-decoration: underline;' %></td>
+        <td>€<%= payment.amount %></td>
         <td><%= link_to 'Show', location_employee_customer_payment_path(@location, @employee, @customer, payment), :class => 'btn btn-outline-info' %></td>
         <td><%= link_to 'Edit', edit_location_employee_customer_payment_path(@location, @employee, @customer, payment), :class => 'btn btn-outline-info' %></td>
-        <td><%= link_to 'Destroy', location_employee_customer_payment_path(@location, @employee, @customer, payment), :method => :delete, data: { confirm: 'Only admins can delete. Continue?' }, :class => 'btn btn-outline-danger' %></td>
+        <td><%= link_to 'Destroy', nil, :onclick => "alert('Sorry, payments cannot be deleted. Please contact the card issuer to reverse the payment.')", :class => 'btn btn-outline-danger' %></td>
       </tr>
     <% end %>
   </tbody>
