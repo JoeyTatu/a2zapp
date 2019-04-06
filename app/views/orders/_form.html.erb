@@ -1,0 +1,53 @@
+<script>
+$('#datepicker').datepicker({format: 'yyyy-mm-dd'});
+</script>
+
+<%= form_for([@location, @employee, @customer, @order]) do |f| %>
+    <% if @order.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+        <ul>
+            <% @order.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+    </div>
+    <% end %>
+    <div class="field">
+        <%= f.label :customer, as: 'Customer' %><br>
+        <%= f.collection_select(:customer, @customers, :id, :full_name) %>
+    </div>
+    <div class="field">
+        <%= f.label :product_id %><br>
+        <%= f.collection_select(:product_id, @products, :id, :product_name) %>
+    </div>
+    <div class="field">
+        <%= f.label :order_date %><br><br>
+        <%= f.date_field :order_date, :id => 'datepicker', :class => 'form-control' %><br>
+        at<br>
+        <%= f.time_field :order_date, :ignore_date => true %>
+    </div>
+        <div class="field">
+        <%= f.label :due_on %><br><br>
+        <%= f.date_field :due_on, :id => 'datepicker', :class => 'form-control' %>
+    </div>
+    <div class="field">
+        <%= f.label :shipped_on %><br><br>
+        <%= f.date_field :shipped_on, :id => 'datepicker', :class => 'form-control' %><br>
+        at<br>
+        <%= f.time_field :shipped_on, :ignore_date => true %>
+    </div>
+     <div class="field">
+        <%= f.label :status %><br>
+        <%= f.select :status, options_for_select([["Select one", ""], "Processing", "Shipped", "Deylayed", "Rejected"]), :class => 'genForm_dropBox' %>
+      </div>
+    <div class="field">
+        <%= f.label :comments %><br>
+        <%= f.text_field :comments, 'encrypt' => 'card_num', :class => 'form-control' %>
+    </div>
+    
+    <div class="actions">
+        <%= f.submit 'Submit', :class => 'btn btn-outline-success'%>
+    </div>
+<% end %>
+<hr />

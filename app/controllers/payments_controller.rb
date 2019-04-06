@@ -26,7 +26,7 @@ class PaymentsController < ApplicationController
     @payment = @customer.payments.find(params[:id]) 
   end
 
-  #GET /customers/1/payments/new
+  # GET /customers/1/payments/new
   def new
     @locations = Location.all
     @location = Location.find(params[:location_id])

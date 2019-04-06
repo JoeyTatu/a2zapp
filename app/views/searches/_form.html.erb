@@ -1,0 +1,6 @@
+<%= form_for locations_path, :method => 'get' do %>
+  <%= text_field_tag :search, params[:search], :value => 'Enter address', :onfocus=> "this.value=''", :class => 'form-control' %><br>
+  <%= submit_tag 'Search', :class => 'btn btn-outline-success' %>
+<% end %>
+<br>
+<%= link_to "Advanced Search", new_search_path, :class => 'btn btn-outline-info' %>

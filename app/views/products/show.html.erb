@@ -8,7 +8,7 @@
 <table class="table-striped table-hover" width='50%'>
   <tr>
       <td><strong>Product name:</strong></td>
-      <td><%= @product.product_name %>></td>
+      <td><%= @product.product_name %></td>
   </tr>
   <tr>
       <td><strong>Product Description:</strong></td>
@@ -53,4 +53,4 @@
 <%= link_to 'Edit', edit_location_department_product_path(@location, @department, @product), :class => 'btn btn-outline-warning' %> |
 <%= link_to 'Destroy', location_department_product_path, method: :delete, data: { confirm: 'Only admins can delete. Continue?' }, :class => 'btn btn-outline-danger' %> |
 <%= link_to 'Back', location_department_products_path(@location, @department), :class => 'btn btn-outline-primary' %> ||
-<%= link_to 'Show Orders', nil, :class => 'btn btn-outline-success' %> 
+<%= link_to 'Show Orders', nil, :onclick => "alert('Was not able to connect Products and Orders correctly. Ran out of time. *Sad face*')", :class => 'btn btn-outline-success', :class => 'btn btn-outline-success' %> 

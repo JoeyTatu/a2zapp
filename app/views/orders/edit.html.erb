@@ -1,2 +1,5 @@
-<h1>Orders#edit</h1>
-<p>Find me in app/views/orders/edit.html.erb</p>
+<h1>Editing Order</h1>
+<%= render 'form' %>
+
+<%= link_to 'Show', location_employee_customer_order_path(@location, @employee, @customer, @order), :class => 'btn btn-outline-info' %>
+<%= link_to 'Back', location_employee_customers_path(@location, @employee, @customer), :class => 'btn btn-outline-info' %>

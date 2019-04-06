@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
-
+  
   devise_for :users
+  root 'feed#index'
   
-  root :to => 'welcome#index'
-  
-  get 'pay_nav/index', as: 'pay_nav'
-  
-  get 'cust_nav/index', as: 'cust_nav'
-  
-  get 'welcome/index', as: 'home'
+  get 'feeds/index', as: 'home'
+
+  get 'feeds/show'
+
+  get 'feeds/new'
+
+  get 'feeds/edit'
 
   get 'payments/index', as: 'payments'
 
@@ -58,11 +59,21 @@ Rails.application.routes.draw do
 
   get 'departments/edit'
   
+  get 'pay_nav/index', as: 'pay_nav'
+  
+  get 'cust_nav/index', as: 'cust_nav'
+  
   get 'dept_navbar/index', as: 'dept_navbar'
   
   get 'empl_navbar/index', as: 'empl_navbar'
+  
+  get 'prod_navbar/index', as: 'prod_navbar'
+  
+  get 'order_navbar/index', as: 'order_navbar'
 
   resources :locations
+  
+  resources :searches
   
   resources :locations do
     resources :departments do
@@ -72,6 +83,9 @@ Rails.application.routes.draw do
     end
     resources :employees do
       resources :customers do
+        resources :orders do
+          resources :products
+        end
         resources :payments
       end
     end

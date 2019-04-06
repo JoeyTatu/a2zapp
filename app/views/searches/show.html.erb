@@ -1,0 +1,58 @@
+<h1>Search results</h1>
+<%= link_to "New Search", new_search_path, :class => 'btn btn-outline-info' %> |
+<%= link_to 'Back to locations', locations_path, :class => 'btn btn-outline-info' %>
+<br><br>
+
+<table class="table-striped table-hover" width='50%'>
+<% if @search.search_locations.empty? %>
+  
+  <tr>
+    <td>No records found</td>
+    <td>&nbsp;</td>
+  </tr>
+  
+<% else %>
+
+    <% @search.search_locations.each do |location| %>
+      <%= @message %>
+      <tr>
+        <td><strong>Location type:</strong></td>
+        <td><%= location.location_type %></td>
+      </tr>
+      <tr>
+          <td><strong>Address:</strong></td>
+          
+          <td><%= link_to location.address, "https://www.google.com/maps/search/?api=1&query=#{location.address.parameterize('+')}", :title => "Open #{location.address} in Google Maps", :style => 'color: #3366BB; text-decoration: underline;' %></td>
+      </tr>
+      <tr>
+          <td><strong>Address2:</strong></td>
+          <td><%= location.address2 %></td>
+      </tr>
+      <tr>
+          <td><strong>City:</strong></td>
+          <td><%= location.city %></td>
+      </tr>
+      <tr>
+          <td><strong>Postal code:</strong></td>
+          <td><%= location.postal_code %></td>
+      </tr>
+      <tr>
+          <td><strong>Country:</strong></td>
+          <td><%= location.country %></td>
+      </tr>
+      <tr>
+          <td><strong>Reception phone:</strong>
+          <td><%= link_to location.reception_phone, "tel:#{location.reception_phone}", :title => "Call #{location.reception_phone}", :style => 'color: #3366BB; text-decoration: underline;' %></td>
+      </tr>
+      <tr>
+          <td colspan="2">
+            <center><%= link_to 'More options', location_path(location), :class => 'btn btn-outline-warning' %></center>
+          </td>
+      </tr>
+      <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+    <% end %>
+    
+<% end %>
+</table>

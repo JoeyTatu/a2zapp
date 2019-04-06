@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190404135556) do
+ActiveRecord::Schema.define(version: 20190406131521) do
 
   create_table "customers", force: :cascade do |t|
     t.string   "first_name"
@@ -60,6 +60,25 @@ ActiveRecord::Schema.define(version: 20190404135556) do
   end
 
   add_index "employees", ["location_id"], name: "index_employees_on_location_id"
+
+  create_table "entries", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "published"
+    t.text     "content"
+    t.text     "url"
+    t.string   "author"
+    t.integer  "feed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "feeds", force: :cascade do |t|
+    t.string   "name"
+    t.text     "url"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string   "location_type"
@@ -120,6 +139,19 @@ ActiveRecord::Schema.define(version: 20190404135556) do
 
   add_index "products", ["department_id"], name: "index_products_on_department_id"
   add_index "products", ["order_id"], name: "index_products_on_order_id"
+
+  create_table "searches", force: :cascade do |t|
+    t.string   "keywords"
+    t.string   "location_type"
+    t.string   "address"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "postal_code"
+    t.string   "country"
+    t.string   "reception_phone"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "table_employees", force: :cascade do |t|
   end

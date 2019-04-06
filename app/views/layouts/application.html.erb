@@ -51,7 +51,7 @@
           <%= link_to 'Employees', empl_navbar_path, :class => 'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Products', products_path, :class => 'nav-link' %>
+          <%= link_to 'Products', prod_navbar_path, :class => 'nav-link' %>
         </li>
         <li class="nav-item">
           <%= link_to 'Customers', cust_nav_path, :class => 'nav-link' %>
@@ -60,13 +60,12 @@
           <%= link_to 'Payments', pay_nav_path, :class => 'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Orders', orders_path, :class => 'nav-link' %>
+          <%= link_to 'Orders', order_navbar_path, :class => 'nav-link' %>
         </li>
       </ul>
-      <form class="form-inline mt-2 mt-md-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
-      </form>
+      <%= link_to "Search", locations_path, :class => 'btn btn-outline-warning' %>
+      <dot class="nav-item nav-link disabled" href="#">&nbsp;&bull;&nbsp;</dot> 
+      <%= link_to "Advanced Search", new_search_path, :class => 'btn btn-outline-warning' %>
     </div>
   </nav>
   

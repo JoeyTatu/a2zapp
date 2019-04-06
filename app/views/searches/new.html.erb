@@ -1,0 +1,51 @@
+<h1>Location Advanced Search</h1>
+
+<%= form_for @search, html: {class: "pure-form"} do |s| %>
+
+  <div class="field">
+    <%= s.label :keywords %><br><small>Enter Address here</small><br>
+    <%= s.text_field :keywords, :class => 'form-control' %>
+  </div>
+  
+  <div class="field">
+    <%= s.label :location_type %><br>
+    <%= s.select :location_type, options_for_select(@location_types), :include_blank => true %>
+  </div>
+
+  <div class="field">
+    <%= s.label :address %><br>
+    <%= s.select :address, options_for_select(@addresses), :include_blank => true %>
+  </div>
+  
+  <div class="field">
+    <%= s.label :address2 %><br>
+    <%= s.text_field :address2, :class => 'form-control' %>
+  </div>
+  
+  <div class="field">
+    <%= s.label :city %><br>
+    <%= s.text_field :city, :class => 'form-control' %>
+  </div>
+  
+  <div class="field">
+    <%= s.label :postal_code %><br>
+    <%= s.text_field :postal_code, :class => 'form-control' %>
+  </div>
+  
+  <div class="field">
+    <%= s.label :country %><br>
+    <%= s.text_field :country, :class => 'form-control' %>
+  </div>
+  
+  <div class="field">
+    <%= s.label :reception_phone %><br>
+    <%= s.text_field :reception_phone, :class => 'form-control' %>
+  </div>
+  
+  <div class="actions">
+    <%= s.submit "Search", :class => "btn btn-outline-success" %>
+  </div>
+<% end %>
+<p>
+  <%= link_to "Locations", locations_path, :class => 'btn btn-outline-info' %>
+</p>
