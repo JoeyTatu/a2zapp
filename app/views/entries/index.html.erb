@@ -1,0 +1,15 @@
+<h1>A2Z.ie NEWS - RSS Feed</h1>
+
+<table class="table table-hover table-bordered">
+  <thbody>
+    <% @entries.each do |entry| %>
+          <tr>
+            <td>
+              <%= link_to entry.title, entry, :style => 'color: #3366BB; text-decoration: underline;', :onclick => "alert('Entries are not working. Possible issue with code or gem. This was completed using a tutorial. Please see app/views/entries/show.html.erb for what is supposed to be dispalyed. Continue?')" %> - <i> published <%= time_ago_in_words(entry.published) %> ago.</i>
+            </td>
+          </tr>
+    <% end %>
+  </thbody>
+</table>
+
+

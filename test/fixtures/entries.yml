@@ -2,16 +2,16 @@
 
 one:
   title: MyString
-  published: 2019-04-06 13:15:21
+  publushed: 2019-04-06 13:48:49
   content: MyText
-  url: MyText
+  url: MyString
   author: MyString
   feed_id: 1
 
 two:
   title: MyString
-  published: 2019-04-06 13:15:21
+  publushed: 2019-04-06 13:48:49
   content: MyText
-  url: MyText
+  url: MyString
   author: MyString
   feed_id: 1

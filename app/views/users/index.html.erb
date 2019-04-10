@@ -1,0 +1,30 @@
+
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing all Users</h1>
+
+<br><br>
+<%= link_to "Go to your profile", users_profile_path, :class => 'btn btn-outline-info' %>
+
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      
+      <th>Email</th>
+      <th>Name</th>
+
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email.first(5) %>****<%= user.email.last(7) %></td>
+        <td><%= user.first_name %> <%= user.last_name %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

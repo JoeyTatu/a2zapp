@@ -1,2 +1,35 @@
-<h1>Feeds#index</h1>
-<p>Find me in app/views/feeds/index.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<h1>All feeds</h1>
+
+<br><br>
+
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      
+      <th>Name</th>
+      <th>URL</th>
+      <th>Description</th>
+      <th colspan="3"><center>Options</center></th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @feeds.each do |feed| %>
+      <tr>
+        <td><%= feed.name %></td>
+        <td><%= link_to truncate(feed.url, :length => 40), feed.url, title: "Go to feed URL" ,:style => 'color: #3366BB; text-decoration: underline;'%></td>
+        <td><%= feed.description %></td>
+        <td><%= link_to 'Show', feed, :class => 'btn btn-outline-info' %></td>
+        <td><%= link_to 'Edit', edit_feed_path(feed), :class => 'btn btn-outline-warning' %></td>
+        <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-outline-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Feed', new_feed_path, :class => 'btn btn-outline-success' %>

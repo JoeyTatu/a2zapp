@@ -12,6 +12,7 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
+    @user = User.find(current_user.id)
   end
 
   # GET /locations/new

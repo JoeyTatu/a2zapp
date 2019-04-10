@@ -41,3 +41,20 @@
 <%= link_to 'Back', location_employees_path(@location), :class => 'btn btn-outline-primary' %> ||
 <%= link_to 'Show Payments', location_employee_customer_payments_path(@location, @employee, @customer), :class => 'btn btn-outline-success' %> |
 <%= link_to 'Show Orders', location_employee_customer_orders_path(@location, @employee, @customer), :class => 'btn btn-outline-success' %>
+
+<hr />
+
+<h3>Add comment</h3>
+<%= form_for([@customer, location_employee_customer_comments_path(@location, @employee, @customer, @customer.comments.build)]) do |f| %>
+  <p>
+    <%= f.label :username %><br>
+    <%= f.text_field :username, :class => 'form-control' %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_field :body, :class => 'form-control' %>
+  </p>
+  <p>
+    <%= f.submit({:class => 'btn btn-outline-success'}) %>
+  </p>
+<% end %>

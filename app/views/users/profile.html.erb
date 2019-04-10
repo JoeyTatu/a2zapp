@@ -1,0 +1,31 @@
+<h2>Profile for <%= @user.first_name %> <%= @user.last_name %> </h2>
+
+<br><br>
+
+<%= link_to "View your Tweets", tweets_path, :class => 'btn btn-outline-warning' %>
+
+<br><br>
+
+<h4>Your details:</h4>
+<table class="table-striped table-hover" width='50%'>
+  <tr>
+      <td><strong>First name:</strong></td>
+      <td><%= @user.first_name %></td>
+  </tr>
+  <tr>
+      <td><strong>Last name:</strong></td>
+      <td><%= @user.last_name %></td>
+  </tr>
+  <tr>
+      <td><strong>Email:</strong></td>
+      <td><%= @user.email %></td>
+  </tr>
+  <tr>
+      <td><strong>First access to site:</strong></td>
+      <td><%= @user.created_at %></td>
+  </tr>
+</table>
+
+<br /><br />
+
+<%= link_to 'Edit account', edit_user_registration_path, :class => 'btn btn-outline-info' %>

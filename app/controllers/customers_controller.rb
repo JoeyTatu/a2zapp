@@ -26,6 +26,7 @@ class CustomersController < ApplicationController
     # For URL like /emlpoyees/1/customers/2
     # Find a customer in employee 1 that has id=2
     @customer = @employee.customers.find(params[:id])
+    @comments = @customer.comments
   end
 
   # GET /employees/1/customers/new
@@ -39,6 +40,7 @@ class CustomersController < ApplicationController
     
     # Associate a customer object with employee 1
     @customer = @employee.customers.build
+    @current_user = User.find(current_user.id)
   end
   
   # POST /employees/1/employees

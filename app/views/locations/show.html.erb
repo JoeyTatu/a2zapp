@@ -3,7 +3,6 @@
 <h5>Location details for <b><u><%= @location.address %></b></u></h5>
 
 <br /><br />
-<%= @message %>
 
 <table class="table-striped table-hover" width='50%'>
   <tr>
@@ -46,4 +45,9 @@
 <%= link_to 'Back', locations_path, :class => 'btn btn-outline-primary' %> ||
 <%= link_to 'Show Departments', location_departments_path(@location), :class => 'btn btn-outline-success' %> |
 <%= link_to 'Show Employees', location_employees_path(@location), :class => 'btn btn-outline-success' %>
+
+<hr /><hr />
+
+<%= render 'comments/comments' %>
+<%= render 'comments/form' %>
 

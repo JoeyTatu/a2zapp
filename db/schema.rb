@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190406131521) do
+ActiveRecord::Schema.define(version: 20190407175433) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "username"
+    t.text     "body"
+    t.integer  "location_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "comments", ["location_id"], name: "index_comments_on_location_id"
 
   create_table "customers", force: :cascade do |t|
     t.string   "first_name"
@@ -65,7 +75,7 @@ ActiveRecord::Schema.define(version: 20190406131521) do
     t.string   "title"
     t.datetime "published"
     t.text     "content"
-    t.text     "url"
+    t.string   "url"
     t.string   "author"
     t.integer  "feed_id"
     t.datetime "created_at", null: false
@@ -74,7 +84,7 @@ ActiveRecord::Schema.define(version: 20190406131521) do
 
   create_table "feeds", force: :cascade do |t|
     t.string   "name"
-    t.text     "url"
+    t.string   "url"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -164,6 +174,8 @@ ActiveRecord::Schema.define(version: 20190406131521) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

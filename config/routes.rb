@@ -1,15 +1,28 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users
-  root 'feed#index'
   
-  get 'feeds/index', as: 'home'
+  root 'entries#index', :id => '1' # Sets root to entries/index with feed_id = 1
+  
+  get 'entries/index', as: 'home', :id => '1' # Sets home to entries/index with feed_id = 1
+  
+  match '/users',   to: 'users#index',   via: 'get'
+  
+  get 'users/profile'
+  
+  get 'entries/index', as: 'entries'
+
+  get 'entries/show'
+  
+  get 'feeds/index', as: 'feeds'
 
   get 'feeds/show'
 
   get 'feeds/new'
 
   get 'feeds/edit'
+  
+  get 'users/show'
 
   get 'payments/index', as: 'payments'
 
@@ -70,8 +83,22 @@ Rails.application.routes.draw do
   get 'prod_navbar/index', as: 'prod_navbar'
   
   get 'order_navbar/index', as: 'order_navbar'
+  
+  match '/tweets',   to: 'tweets#index',   via: 'get'
+  
+  match 'profile/tweets', to: 'tweets#index',   via: 'get'
+  
+  get '/commwnts', :controller=>'comments', :action=>'comment_filter'
 
-  resources :locations
+  #get 'entries/index'
+
+  #get 'entries/show'
+
+  resources :users
+  
+  resources :locations do 
+    resources :comments
+  end
   
   resources :searches
   
@@ -88,6 +115,16 @@ Rails.application.routes.draw do
         end
         resources :payments
       end
+    end
+  end
+  
+  # resources :feeds do
+  #   resources :entries
+  # end
+  
+  resources :feeds do
+    member do
+      resources :entries, only: [:index, :show]
     end
   end
   

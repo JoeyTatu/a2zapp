@@ -1,2 +1,6 @@
-<h1>Feeds#edit</h1>
-<p>Find me in app/views/feeds/edit.html.erb</p>
+<h1>Editing Feed</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @feed, :class => 'btn btn-outline-warning' %> |
+<%= link_to 'Back', feeds_path, :class => 'btn btn-outline-info' %>

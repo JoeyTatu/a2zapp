@@ -1,546 +1,173 @@
-                                 Prefix Verb   URI Pattern                                                                                       Controller#Action
-                       new_user_session GET    /users/sign_in(.:format)                                                                          devise/sessions#new
-                           user_session POST   /users/sign_in(.:format)                                                                          devise/sessions#create
-                   destroy_user_session DELETE /users/sign_out(.:format)                                                                         devise/sessions#destroy
-                          user_password POST   /users/password(.:format)                                                                         devise/passwords#create
-                      new_user_password GET    /users/password/new(.:format)                                                                     devise/passwords#new
-                     edit_user_password GET    /users/password/edit(.:format)                                                                    devise/passwords#edit
-                                        PATCH  /users/password(.:format)                                                                         devise/passwords#update
-                                        PUT    /users/password(.:format)                                                                         devise/passwords#update
-               cancel_user_registration GET    /users/cancel(.:format)                                                                           devise/registrations#cancel
-                      user_registration POST   /users(.:format)                                                                                  devise/registrations#create
-                  new_user_registration GET    /users/sign_up(.:format)                                                                          devise/registrations#new
-                 edit_user_registration GET    /users/edit(.:format)                                                                             devise/registrations#edit
-                                        PATCH  /users(.:format)                                                                                  devise/registrations#update
-                                        PUT    /users(.:format)                                                                                  devise/registrations#update
-                                        DELETE /users(.:format)                                                                                  devise/registrations#destroy
-                                   root GET    /                                                                                                 welcome#index
-                                   home GET    /welcome/index(.:format)                                                                          welcome#index
-                               payments GET    /payments/index(.:format)                                                                         payments#index
-                          payments_show GET    /payments/show(.:format)                                                                          payments#show
-                           payments_new GET    /payments/new(.:format)                                                                           payments#new
-                          payments_edit GET    /payments/edit(.:format)                                                                          payments#edit
-                              customers GET    /customers/index(.:format)                                                                        customers#index
-                         customers_show GET    /customers/show(.:format)                                                                         customers#show
-                          customers_new GET    /customers/new(.:format)                                                                          customers#new
-                         customers_edit GET    /customers/edit(.:format)                                                                         customers#edit
-                                 orders GET    /orders/index(.:format)                                                                           orders#index
-                            orders_show GET    /orders/show(.:format)                                                                            orders#show
-                             orders_new GET    /orders/new(.:format)                                                                             orders#new
-                            orders_edit GET    /orders/edit(.:format)                                                                            orders#edit
-                               products GET    /products/index(.:format)                                                                         products#index
-                          products_show GET    /products/show(.:format)                                                                          products#show
-                           products_new GET    /products/new(.:format)                                                                           products#new
-                          products_edit GET    /products/edit(.:format)                                                                          products#edit
-                              employees GET    /employees/index(.:format)                                                                        employees#index
-                         employees_show GET    /employees/show(.:format)                                                                         employees#show
-                          employees_new GET    /employees/new(.:format)                                                                          employees#new
-                         employees_edit GET    /employees/edit(.:format)                                                                         employees#edit
-                            departments GET    /departments/index(.:format)                                                                      departments#index
-                       departments_show GET    /departments/show(.:format)                                                                       departments#show
-                        departments_new GET    /departments/new(.:format)                                                                        departments#new
-                       departments_edit GET    /departments/edit(.:format)                                                                       departments#edit
-                            dept_navbar GET    /dept_navbar/index(.:format)                                                                      dept_navbar#index
-                            empl_navbar GET    /empl_navbar/index(.:format)                                                                      empl_navbar#index
-                              locations GET    /locations(.:format)                                                                              locations#index
-                                        POST   /locations(.:format)                                                                              locations#create
-                           new_location GET    /locations/new(.:format)                                                                          locations#new
-                          edit_location GET    /locations/:id/edit(.:format)                                                                     locations#edit
-                               location GET    /locations/:id(.:format)                                                                          locations#show
-                                        PATCH  /locations/:id(.:format)                                                                          locations#update
-                                        PUT    /locations/:id(.:format)                                                                          locations#update
-                                        DELETE /locations/:id(.:format)                                                                          locations#destroy
-     location_department_product_orders GET    /locations/:location_id/departments/:department_id/products/:product_id/orders(.:format)          orders#index
-                                        POST   /locations/:location_id/departments/:department_id/products/:product_id/orders(.:format)          orders#create
-  new_location_department_product_order GET    /locations/:location_id/departments/:department_id/products/:product_id/orders/new(.:format)      orders#new
- edit_location_department_product_order GET    /locations/:location_id/departments/:department_id/products/:product_id/orders/:id/edit(.:format) orders#edit
-      location_department_product_order GET    /locations/:location_id/departments/:department_id/products/:product_id/orders/:id(.:format)      orders#show
-                                        PATCH  /locations/:location_id/departments/:department_id/products/:product_id/orders/:id(.:format)      orders#update
-                                        PUT    /locations/:location_id/departments/:department_id/products/:product_id/orders/:id(.:format)      orders#update
-                                        DELETE /locations/:location_id/departments/:department_id/products/:product_id/orders/:id(.:format)      orders#destroy
-           location_department_products GET    /locations/:location_id/departments/:department_id/products(.:format)                             products#index
-                                        POST   /locations/:location_id/departments/:department_id/products(.:format)                             products#create
-        new_location_department_product GET    /locations/:location_id/departments/:department_id/products/new(.:format)                         products#new
-       edit_location_department_product GET    /locations/:location_id/departments/:department_id/products/:id/edit(.:format)                    products#edit
-            location_department_product GET    /locations/:location_id/departments/:department_id/products/:id(.:format)                         products#show
-                                        PATCH  /locations/:location_id/departments/:department_id/products/:id(.:format)                         products#update
-                                        PUT    /locations/:location_id/departments/:department_id/products/:id(.:format)                         products#update
-                                        DELETE /locations/:location_id/departments/:department_id/products/:id(.:format)                         products#destroy
-                   location_departments GET    /locations/:location_id/departments(.:format)                                                     departments#index
-                                        POST   /locations/:location_id/departments(.:format)                                                     departments#create
-                new_location_department GET    /locations/:location_id/departments/new(.:format)                                                 departments#new
-               edit_location_department GET    /locations/:location_id/departments/:id/edit(.:format)                                            departments#edit
-                    location_department GET    /locations/:location_id/departments/:id(.:format)                                                 departments#show
-                                        PATCH  /locations/:location_id/departments/:id(.:format)                                                 departments#update
-                                        PUT    /locations/:location_id/departments/:id(.:format)                                                 departments#update
-                                        DELETE /locations/:location_id/departments/:id(.:format)                                                 departments#destroy
-    location_employee_customer_payments GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments(.:format)          payments#index
-                                        POST   /locations/:location_id/employees/:employee_id/customers/:customer_id/payments(.:format)          payments#create
- new_location_employee_customer_payment GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/new(.:format)      payments#new
-edit_location_employee_customer_payment GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id/edit(.:format) payments#edit
-     location_employee_customer_payment GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)      payments#show
-                                        PATCH  /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)      payments#update
-                                        PUT    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)      payments#update
-                                        DELETE /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)      payments#destroy
-            location_employee_customers GET    /locations/:location_id/employees/:employee_id/customers(.:format)                                customers#index
-                                        POST   /locations/:location_id/employees/:employee_id/customers(.:format)                                customers#create
-         new_location_employee_customer GET    /locations/:location_id/employees/:employee_id/customers/new(.:format)                            customers#new
-        edit_location_employee_customer GET    /locations/:location_id/employees/:employee_id/customers/:id/edit(.:format)                       customers#edit
-             location_employee_customer GET    /locations/:location_id/employees/:employee_id/customers/:id(.:format)                            customers#show
-                                        PATCH  /locations/:location_id/employees/:employee_id/customers/:id(.:format)                            customers#update
-                                        PUT    /locations/:location_id/employees/:employee_id/customers/:id(.:format)                            customers#update
-                                        DELETE /locations/:location_id/employees/:employee_id/customers/:id(.:format)                            customers#destroy
-                     location_employees GET    /locations/:location_id/employees(.:format)                                                       employees#index
-                                        POST   /locations/:location_id/employees(.:format)                                                       employees#create
-                  new_location_employee GET    /locations/:location_id/employees/new(.:format)                                                   employees#new
-                 edit_location_employee GET    /locations/:location_id/employees/:id/edit(.:format)                                              employees#edit
-                      location_employee GET    /locations/:location_id/employees/:id(.:format)                                                   employees#show
-                                        PATCH  /locations/:location_id/employees/:id(.:format)                                                   employees#update
-                                        PUT    /locations/:location_id/employees/:id(.:format)                                                   employees#update
-                                        DELETE /locations/:location_id/employees/:id(.:format)                                                   employees#destroy
-                                        GET    /locations(.:format)                                                                              locations#index
-                                        POST   /locations(.:format)                                                                              locations#create
-                                        GET    /locations/new(.:format)                                                                          locations#new
-                                        GET    /locations/:id/edit(.:format)                                                                     locations#edit
-                                        GET    /locations/:id(.:format)                                                                          locations#show
-                                        PATCH  /locations/:id(.:format)                                                                          locations#update
-                                        PUT    /locations/:id(.:format)                                                                          locations#update
-                                        DELETE /locations/:id(.:format)                                                                          locations#destroy
-                                 Prefix Verb   URI Pattern                                                                                       Controller#Action
-                         cust_nav_index GET    /cust_nav/index(.:format)                                                                         cust_nav#index
-                       new_user_session GET    /users/sign_in(.:format)                                                                          devise/sessions#new
-                           user_session POST   /users/sign_in(.:format)                                                                          devise/sessions#create
-                   destroy_user_session DELETE /users/sign_out(.:format)                                                                         devise/sessions#destroy
-                          user_password POST   /users/password(.:format)                                                                         devise/passwords#create
-                      new_user_password GET    /users/password/new(.:format)                                                                     devise/passwords#new
-                     edit_user_password GET    /users/password/edit(.:format)                                                                    devise/passwords#edit
-                                        PATCH  /users/password(.:format)                                                                         devise/passwords#update
-                                        PUT    /users/password(.:format)                                                                         devise/passwords#update
-               cancel_user_registration GET    /users/cancel(.:format)                                                                           devise/registrations#cancel
-                      user_registration POST   /users(.:format)                                                                                  devise/registrations#create
-                  new_user_registration GET    /users/sign_up(.:format)                                                                          devise/registrations#new
-                 edit_user_registration GET    /users/edit(.:format)                                                                             devise/registrations#edit
-                                        PATCH  /users(.:format)                                                                                  devise/registrations#update
-                                        PUT    /users(.:format)                                                                                  devise/registrations#update
-                                        DELETE /users(.:format)                                                                                  devise/registrations#destroy
-                                   root GET    /                                                                                                 welcome#index
-                                   home GET    /welcome/index(.:format)                                                                          welcome#index
-                               payments GET    /payments/index(.:format)                                                                         payments#index
-                          payments_show GET    /payments/show(.:format)                                                                          payments#show
-                           payments_new GET    /payments/new(.:format)                                                                           payments#new
-                          payments_edit GET    /payments/edit(.:format)                                                                          payments#edit
-                              customers GET    /customers/index(.:format)                                                                        customers#index
-                         customers_show GET    /customers/show(.:format)                                                                         customers#show
-                          customers_new GET    /customers/new(.:format)                                                                          customers#new
-                         customers_edit GET    /customers/edit(.:format)                                                                         customers#edit
-                                 orders GET    /orders/index(.:format)                                                                           orders#index
-                            orders_show GET    /orders/show(.:format)                                                                            orders#show
-                             orders_new GET    /orders/new(.:format)                                                                             orders#new
-                            orders_edit GET    /orders/edit(.:format)                                                                            orders#edit
-                               products GET    /products/index(.:format)                                                                         products#index
-                          products_show GET    /products/show(.:format)                                                                          products#show
-                           products_new GET    /products/new(.:format)                                                                           products#new
-                          products_edit GET    /products/edit(.:format)                                                                          products#edit
-                              employees GET    /employees/index(.:format)                                                                        employees#index
-                         employees_show GET    /employees/show(.:format)                                                                         employees#show
-                          employees_new GET    /employees/new(.:format)                                                                          employees#new
-                         employees_edit GET    /employees/edit(.:format)                                                                         employees#edit
-                            departments GET    /departments/index(.:format)                                                                      departments#index
-                       departments_show GET    /departments/show(.:format)                                                                       departments#show
-                        departments_new GET    /departments/new(.:format)                                                                        departments#new
-                       departments_edit GET    /departments/edit(.:format)                                                                       departments#edit
-                            dept_navbar GET    /dept_navbar/index(.:format)                                                                      dept_navbar#index
-                            empl_navbar GET    /empl_navbar/index(.:format)                                                                      empl_navbar#index
-                              locations GET    /locations(.:format)                                                                              locations#index
-                                        POST   /locations(.:format)                                                                              locations#create
-                           new_location GET    /locations/new(.:format)                                                                          locations#new
-                          edit_location GET    /locations/:id/edit(.:format)                                                                     locations#edit
-                               location GET    /locations/:id(.:format)                                                                          locations#show
-                                        PATCH  /locations/:id(.:format)                                                                          locations#update
-                                        PUT    /locations/:id(.:format)                                                                          locations#update
-                                        DELETE /locations/:id(.:format)                                                                          locations#destroy
-     location_department_product_orders GET    /locations/:location_id/departments/:department_id/products/:product_id/orders(.:format)          orders#index
-                                        POST   /locations/:location_id/departments/:department_id/products/:product_id/orders(.:format)          orders#create
-  new_location_department_product_order GET    /locations/:location_id/departments/:department_id/products/:product_id/orders/new(.:format)      orders#new
- edit_location_department_product_order GET    /locations/:location_id/departments/:department_id/products/:product_id/orders/:id/edit(.:format) orders#edit
-      location_department_product_order GET    /locations/:location_id/departments/:department_id/products/:product_id/orders/:id(.:format)      orders#show
-                                        PATCH  /locations/:location_id/departments/:department_id/products/:product_id/orders/:id(.:format)      orders#update
-                                        PUT    /locations/:location_id/departments/:department_id/products/:product_id/orders/:id(.:format)      orders#update
-                                        DELETE /locations/:location_id/departments/:department_id/products/:product_id/orders/:id(.:format)      orders#destroy
-           location_department_products GET    /locations/:location_id/departments/:department_id/products(.:format)                             products#index
-                                        POST   /locations/:location_id/departments/:department_id/products(.:format)                             products#create
-        new_location_department_product GET    /locations/:location_id/departments/:department_id/products/new(.:format)                         products#new
-       edit_location_department_product GET    /locations/:location_id/departments/:department_id/products/:id/edit(.:format)                    products#edit
-            location_department_product GET    /locations/:location_id/departments/:department_id/products/:id(.:format)                         products#show
-                                        PATCH  /locations/:location_id/departments/:department_id/products/:id(.:format)                         products#update
-                                        PUT    /locations/:location_id/departments/:department_id/products/:id(.:format)                         products#update
-                                        DELETE /locations/:location_id/departments/:department_id/products/:id(.:format)                         products#destroy
-                   location_departments GET    /locations/:location_id/departments(.:format)                                                     departments#index
-                                        POST   /locations/:location_id/departments(.:format)                                                     departments#create
-                new_location_department GET    /locations/:location_id/departments/new(.:format)                                                 departments#new
-               edit_location_department GET    /locations/:location_id/departments/:id/edit(.:format)                                            departments#edit
-                    location_department GET    /locations/:location_id/departments/:id(.:format)                                                 departments#show
-                                        PATCH  /locations/:location_id/departments/:id(.:format)                                                 departments#update
-                                        PUT    /locations/:location_id/departments/:id(.:format)                                                 departments#update
-                                        DELETE /locations/:location_id/departments/:id(.:format)                                                 departments#destroy
-    location_employee_customer_payments GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments(.:format)          payments#index
-                                        POST   /locations/:location_id/employees/:employee_id/customers/:customer_id/payments(.:format)          payments#create
- new_location_employee_customer_payment GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/new(.:format)      payments#new
-edit_location_employee_customer_payment GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id/edit(.:format) payments#edit
-     location_employee_customer_payment GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)      payments#show
-                                        PATCH  /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)      payments#update
-                                        PUT    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)      payments#update
-                                        DELETE /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)      payments#destroy
-            location_employee_customers GET    /locations/:location_id/employees/:employee_id/customers(.:format)                                customers#index
-                                        POST   /locations/:location_id/employees/:employee_id/customers(.:format)                                customers#create
-         new_location_employee_customer GET    /locations/:location_id/employees/:employee_id/customers/new(.:format)                            customers#new
-        edit_location_employee_customer GET    /locations/:location_id/employees/:employee_id/customers/:id/edit(.:format)                       customers#edit
-             location_employee_customer GET    /locations/:location_id/employees/:employee_id/customers/:id(.:format)                            customers#show
-                                        PATCH  /locations/:location_id/employees/:employee_id/customers/:id(.:format)                            customers#update
-                                        PUT    /locations/:location_id/employees/:employee_id/customers/:id(.:format)                            customers#update
-                                        DELETE /locations/:location_id/employees/:employee_id/customers/:id(.:format)                            customers#destroy
-                     location_employees GET    /locations/:location_id/employees(.:format)                                                       employees#index
-                                        POST   /locations/:location_id/employees(.:format)                                                       employees#create
-                  new_location_employee GET    /locations/:location_id/employees/new(.:format)                                                   employees#new
-                 edit_location_employee GET    /locations/:location_id/employees/:id/edit(.:format)                                              employees#edit
-                      location_employee GET    /locations/:location_id/employees/:id(.:format)                                                   employees#show
-                                        PATCH  /locations/:location_id/employees/:id(.:format)                                                   employees#update
-                                        PUT    /locations/:location_id/employees/:id(.:format)                                                   employees#update
-                                        DELETE /locations/:location_id/employees/:id(.:format)                                                   employees#destroy
-                                        GET    /locations(.:format)                                                                              locations#index
-                                        POST   /locations(.:format)                                                                              locations#create
-                                        GET    /locations/new(.:format)                                                                          locations#new
-                                        GET    /locations/:id/edit(.:format)                                                                     locations#edit
-                                        GET    /locations/:id(.:format)                                                                          locations#show
-                                        PATCH  /locations/:id(.:format)                                                                          locations#update
-                                        PUT    /locations/:id(.:format)                                                                          locations#update
-                                        DELETE /locations/:id(.:format)                                                                          locations#destroy
-                                 Prefix Verb   URI Pattern                                                                                       Controller#Action
-                       new_user_session GET    /users/sign_in(.:format)                                                                          devise/sessions#new
-                           user_session POST   /users/sign_in(.:format)                                                                          devise/sessions#create
-                   destroy_user_session DELETE /users/sign_out(.:format)                                                                         devise/sessions#destroy
-                          user_password POST   /users/password(.:format)                                                                         devise/passwords#create
-                      new_user_password GET    /users/password/new(.:format)                                                                     devise/passwords#new
-                     edit_user_password GET    /users/password/edit(.:format)                                                                    devise/passwords#edit
-                                        PATCH  /users/password(.:format)                                                                         devise/passwords#update
-                                        PUT    /users/password(.:format)                                                                         devise/passwords#update
-               cancel_user_registration GET    /users/cancel(.:format)                                                                           devise/registrations#cancel
-                      user_registration POST   /users(.:format)                                                                                  devise/registrations#create
-                  new_user_registration GET    /users/sign_up(.:format)                                                                          devise/registrations#new
-                 edit_user_registration GET    /users/edit(.:format)                                                                             devise/registrations#edit
-                                        PATCH  /users(.:format)                                                                                  devise/registrations#update
-                                        PUT    /users(.:format)                                                                                  devise/registrations#update
-                                        DELETE /users(.:format)                                                                                  devise/registrations#destroy
-                                   root GET    /                                                                                                 welcome#index
-                               cust_nav GET    /cust_nav/index(.:format)                                                                         cust_nav#index
-                                   home GET    /welcome/index(.:format)                                                                          welcome#index
-                               payments GET    /payments/index(.:format)                                                                         payments#index
-                          payments_show GET    /payments/show(.:format)                                                                          payments#show
-                           payments_new GET    /payments/new(.:format)                                                                           payments#new
-                          payments_edit GET    /payments/edit(.:format)                                                                          payments#edit
-                              customers GET    /customers/index(.:format)                                                                        customers#index
-                         customers_show GET    /customers/show(.:format)                                                                         customers#show
-                          customers_new GET    /customers/new(.:format)                                                                          customers#new
-                         customers_edit GET    /customers/edit(.:format)                                                                         customers#edit
-                                 orders GET    /orders/index(.:format)                                                                           orders#index
-                            orders_show GET    /orders/show(.:format)                                                                            orders#show
-                             orders_new GET    /orders/new(.:format)                                                                             orders#new
-                            orders_edit GET    /orders/edit(.:format)                                                                            orders#edit
-                               products GET    /products/index(.:format)                                                                         products#index
-                          products_show GET    /products/show(.:format)                                                                          products#show
-                           products_new GET    /products/new(.:format)                                                                           products#new
-                          products_edit GET    /products/edit(.:format)                                                                          products#edit
-                              employees GET    /employees/index(.:format)                                                                        employees#index
-                         employees_show GET    /employees/show(.:format)                                                                         employees#show
-                          employees_new GET    /employees/new(.:format)                                                                          employees#new
-                         employees_edit GET    /employees/edit(.:format)                                                                         employees#edit
-                            departments GET    /departments/index(.:format)                                                                      departments#index
-                       departments_show GET    /departments/show(.:format)                                                                       departments#show
-                        departments_new GET    /departments/new(.:format)                                                                        departments#new
-                       departments_edit GET    /departments/edit(.:format)                                                                       departments#edit
-                            dept_navbar GET    /dept_navbar/index(.:format)                                                                      dept_navbar#index
-                            empl_navbar GET    /empl_navbar/index(.:format)                                                                      empl_navbar#index
-                              locations GET    /locations(.:format)                                                                              locations#index
-                                        POST   /locations(.:format)                                                                              locations#create
-                           new_location GET    /locations/new(.:format)                                                                          locations#new
-                          edit_location GET    /locations/:id/edit(.:format)                                                                     locations#edit
-                               location GET    /locations/:id(.:format)                                                                          locations#show
-                                        PATCH  /locations/:id(.:format)                                                                          locations#update
-                                        PUT    /locations/:id(.:format)                                                                          locations#update
-                                        DELETE /locations/:id(.:format)                                                                          locations#destroy
-     location_department_product_orders GET    /locations/:location_id/departments/:department_id/products/:product_id/orders(.:format)          orders#index
-                                        POST   /locations/:location_id/departments/:department_id/products/:product_id/orders(.:format)          orders#create
-  new_location_department_product_order GET    /locations/:location_id/departments/:department_id/products/:product_id/orders/new(.:format)      orders#new
- edit_location_department_product_order GET    /locations/:location_id/departments/:department_id/products/:product_id/orders/:id/edit(.:format) orders#edit
-      location_department_product_order GET    /locations/:location_id/departments/:department_id/products/:product_id/orders/:id(.:format)      orders#show
-                                        PATCH  /locations/:location_id/departments/:department_id/products/:product_id/orders/:id(.:format)      orders#update
-                                        PUT    /locations/:location_id/departments/:department_id/products/:product_id/orders/:id(.:format)      orders#update
-                                        DELETE /locations/:location_id/departments/:department_id/products/:product_id/orders/:id(.:format)      orders#destroy
-           location_department_products GET    /locations/:location_id/departments/:department_id/products(.:format)                             products#index
-                                        POST   /locations/:location_id/departments/:department_id/products(.:format)                             products#create
-        new_location_department_product GET    /locations/:location_id/departments/:department_id/products/new(.:format)                         products#new
-       edit_location_department_product GET    /locations/:location_id/departments/:department_id/products/:id/edit(.:format)                    products#edit
-            location_department_product GET    /locations/:location_id/departments/:department_id/products/:id(.:format)                         products#show
-                                        PATCH  /locations/:location_id/departments/:department_id/products/:id(.:format)                         products#update
-                                        PUT    /locations/:location_id/departments/:department_id/products/:id(.:format)                         products#update
-                                        DELETE /locations/:location_id/departments/:department_id/products/:id(.:format)                         products#destroy
-                   location_departments GET    /locations/:location_id/departments(.:format)                                                     departments#index
-                                        POST   /locations/:location_id/departments(.:format)                                                     departments#create
-                new_location_department GET    /locations/:location_id/departments/new(.:format)                                                 departments#new
-               edit_location_department GET    /locations/:location_id/departments/:id/edit(.:format)                                            departments#edit
-                    location_department GET    /locations/:location_id/departments/:id(.:format)                                                 departments#show
-                                        PATCH  /locations/:location_id/departments/:id(.:format)                                                 departments#update
-                                        PUT    /locations/:location_id/departments/:id(.:format)                                                 departments#update
-                                        DELETE /locations/:location_id/departments/:id(.:format)                                                 departments#destroy
-    location_employee_customer_payments GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments(.:format)          payments#index
-                                        POST   /locations/:location_id/employees/:employee_id/customers/:customer_id/payments(.:format)          payments#create
- new_location_employee_customer_payment GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/new(.:format)      payments#new
-edit_location_employee_customer_payment GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id/edit(.:format) payments#edit
-     location_employee_customer_payment GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)      payments#show
-                                        PATCH  /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)      payments#update
-                                        PUT    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)      payments#update
-                                        DELETE /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)      payments#destroy
-            location_employee_customers GET    /locations/:location_id/employees/:employee_id/customers(.:format)                                customers#index
-                                        POST   /locations/:location_id/employees/:employee_id/customers(.:format)                                customers#create
-         new_location_employee_customer GET    /locations/:location_id/employees/:employee_id/customers/new(.:format)                            customers#new
-        edit_location_employee_customer GET    /locations/:location_id/employees/:employee_id/customers/:id/edit(.:format)                       customers#edit
-             location_employee_customer GET    /locations/:location_id/employees/:employee_id/customers/:id(.:format)                            customers#show
-                                        PATCH  /locations/:location_id/employees/:employee_id/customers/:id(.:format)                            customers#update
-                                        PUT    /locations/:location_id/employees/:employee_id/customers/:id(.:format)                            customers#update
-                                        DELETE /locations/:location_id/employees/:employee_id/customers/:id(.:format)                            customers#destroy
-                     location_employees GET    /locations/:location_id/employees(.:format)                                                       employees#index
-                                        POST   /locations/:location_id/employees(.:format)                                                       employees#create
-                  new_location_employee GET    /locations/:location_id/employees/new(.:format)                                                   employees#new
-                 edit_location_employee GET    /locations/:location_id/employees/:id/edit(.:format)                                              employees#edit
-                      location_employee GET    /locations/:location_id/employees/:id(.:format)                                                   employees#show
-                                        PATCH  /locations/:location_id/employees/:id(.:format)                                                   employees#update
-                                        PUT    /locations/:location_id/employees/:id(.:format)                                                   employees#update
-                                        DELETE /locations/:location_id/employees/:id(.:format)                                                   employees#destroy
-                                        GET    /locations(.:format)                                                                              locations#index
-                                        POST   /locations(.:format)                                                                              locations#create
-                                        GET    /locations/new(.:format)                                                                          locations#new
-                                        GET    /locations/:id/edit(.:format)                                                                     locations#edit
-                                        GET    /locations/:id(.:format)                                                                          locations#show
-                                        PATCH  /locations/:id(.:format)                                                                          locations#update
-                                        PUT    /locations/:id(.:format)                                                                          locations#update
-                                        DELETE /locations/:id(.:format)                                                                          locations#destroy
-                                 Prefix Verb   URI Pattern                                                                                       Controller#Action
-                       new_user_session GET    /users/sign_in(.:format)                                                                          devise/sessions#new
-                           user_session POST   /users/sign_in(.:format)                                                                          devise/sessions#create
-                   destroy_user_session DELETE /users/sign_out(.:format)                                                                         devise/sessions#destroy
-                          user_password POST   /users/password(.:format)                                                                         devise/passwords#create
-                      new_user_password GET    /users/password/new(.:format)                                                                     devise/passwords#new
-                     edit_user_password GET    /users/password/edit(.:format)                                                                    devise/passwords#edit
-                                        PATCH  /users/password(.:format)                                                                         devise/passwords#update
-                                        PUT    /users/password(.:format)                                                                         devise/passwords#update
-               cancel_user_registration GET    /users/cancel(.:format)                                                                           devise/registrations#cancel
-                      user_registration POST   /users(.:format)                                                                                  devise/registrations#create
-                  new_user_registration GET    /users/sign_up(.:format)                                                                          devise/registrations#new
-                 edit_user_registration GET    /users/edit(.:format)                                                                             devise/registrations#edit
-                                        PATCH  /users(.:format)                                                                                  devise/registrations#update
-                                        PUT    /users(.:format)                                                                                  devise/registrations#update
-                                        DELETE /users(.:format)                                                                                  devise/registrations#destroy
-                                   root GET    /                                                                                                 welcome#index
-                               cust_nav GET    /cust_nav/index(.:format)                                                                         cust_nav#index
-                                   home GET    /welcome/index(.:format)                                                                          welcome#index
-                               payments GET    /payments/index(.:format)                                                                         payments#index
-                          payments_show GET    /payments/show(.:format)                                                                          payments#show
-                           payments_new GET    /payments/new(.:format)                                                                           payments#new
-                          payments_edit GET    /payments/edit(.:format)                                                                          payments#edit
-                              customers GET    /customers/index(.:format)                                                                        customers#index
-                         customers_show GET    /customers/show(.:format)                                                                         customers#show
-                          customers_new GET    /customers/new(.:format)                                                                          customers#new
-                         customers_edit GET    /customers/edit(.:format)                                                                         customers#edit
-                                 orders GET    /orders/index(.:format)                                                                           orders#index
-                            orders_show GET    /orders/show(.:format)                                                                            orders#show
-                             orders_new GET    /orders/new(.:format)                                                                             orders#new
-                            orders_edit GET    /orders/edit(.:format)                                                                            orders#edit
-                               products GET    /products/index(.:format)                                                                         products#index
-                          products_show GET    /products/show(.:format)                                                                          products#show
-                           products_new GET    /products/new(.:format)                                                                           products#new
-                          products_edit GET    /products/edit(.:format)                                                                          products#edit
-                              employees GET    /employees/index(.:format)                                                                        employees#index
-                         employees_show GET    /employees/show(.:format)                                                                         employees#show
-                          employees_new GET    /employees/new(.:format)                                                                          employees#new
-                         employees_edit GET    /employees/edit(.:format)                                                                         employees#edit
-                            departments GET    /departments/index(.:format)                                                                      departments#index
-                       departments_show GET    /departments/show(.:format)                                                                       departments#show
-                        departments_new GET    /departments/new(.:format)                                                                        departments#new
-                       departments_edit GET    /departments/edit(.:format)                                                                       departments#edit
-                            dept_navbar GET    /dept_navbar/index(.:format)                                                                      dept_navbar#index
-                            empl_navbar GET    /empl_navbar/index(.:format)                                                                      empl_navbar#index
-                              locations GET    /locations(.:format)                                                                              locations#index
-                                        POST   /locations(.:format)                                                                              locations#create
-                           new_location GET    /locations/new(.:format)                                                                          locations#new
-                          edit_location GET    /locations/:id/edit(.:format)                                                                     locations#edit
-                               location GET    /locations/:id(.:format)                                                                          locations#show
-                                        PATCH  /locations/:id(.:format)                                                                          locations#update
-                                        PUT    /locations/:id(.:format)                                                                          locations#update
-                                        DELETE /locations/:id(.:format)                                                                          locations#destroy
-     location_department_product_orders GET    /locations/:location_id/departments/:department_id/products/:product_id/orders(.:format)          orders#index
-                                        POST   /locations/:location_id/departments/:department_id/products/:product_id/orders(.:format)          orders#create
-  new_location_department_product_order GET    /locations/:location_id/departments/:department_id/products/:product_id/orders/new(.:format)      orders#new
- edit_location_department_product_order GET    /locations/:location_id/departments/:department_id/products/:product_id/orders/:id/edit(.:format) orders#edit
-      location_department_product_order GET    /locations/:location_id/departments/:department_id/products/:product_id/orders/:id(.:format)      orders#show
-                                        PATCH  /locations/:location_id/departments/:department_id/products/:product_id/orders/:id(.:format)      orders#update
-                                        PUT    /locations/:location_id/departments/:department_id/products/:product_id/orders/:id(.:format)      orders#update
-                                        DELETE /locations/:location_id/departments/:department_id/products/:product_id/orders/:id(.:format)      orders#destroy
-           location_department_products GET    /locations/:location_id/departments/:department_id/products(.:format)                             products#index
-                                        POST   /locations/:location_id/departments/:department_id/products(.:format)                             products#create
-        new_location_department_product GET    /locations/:location_id/departments/:department_id/products/new(.:format)                         products#new
-       edit_location_department_product GET    /locations/:location_id/departments/:department_id/products/:id/edit(.:format)                    products#edit
-            location_department_product GET    /locations/:location_id/departments/:department_id/products/:id(.:format)                         products#show
-                                        PATCH  /locations/:location_id/departments/:department_id/products/:id(.:format)                         products#update
-                                        PUT    /locations/:location_id/departments/:department_id/products/:id(.:format)                         products#update
-                                        DELETE /locations/:location_id/departments/:department_id/products/:id(.:format)                         products#destroy
-                   location_departments GET    /locations/:location_id/departments(.:format)                                                     departments#index
-                                        POST   /locations/:location_id/departments(.:format)                                                     departments#create
-                new_location_department GET    /locations/:location_id/departments/new(.:format)                                                 departments#new
-               edit_location_department GET    /locations/:location_id/departments/:id/edit(.:format)                                            departments#edit
-                    location_department GET    /locations/:location_id/departments/:id(.:format)                                                 departments#show
-                                        PATCH  /locations/:location_id/departments/:id(.:format)                                                 departments#update
-                                        PUT    /locations/:location_id/departments/:id(.:format)                                                 departments#update
-                                        DELETE /locations/:location_id/departments/:id(.:format)                                                 departments#destroy
-    location_employee_customer_payments GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments(.:format)          payments#index
-                                        POST   /locations/:location_id/employees/:employee_id/customers/:customer_id/payments(.:format)          payments#create
- new_location_employee_customer_payment GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/new(.:format)      payments#new
-edit_location_employee_customer_payment GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id/edit(.:format) payments#edit
-     location_employee_customer_payment GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)      payments#show
-                                        PATCH  /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)      payments#update
-                                        PUT    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)      payments#update
-                                        DELETE /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)      payments#destroy
-            location_employee_customers GET    /locations/:location_id/employees/:employee_id/customers(.:format)                                customers#index
-                                        POST   /locations/:location_id/employees/:employee_id/customers(.:format)                                customers#create
-         new_location_employee_customer GET    /locations/:location_id/employees/:employee_id/customers/new(.:format)                            customers#new
-        edit_location_employee_customer GET    /locations/:location_id/employees/:employee_id/customers/:id/edit(.:format)                       customers#edit
-             location_employee_customer GET    /locations/:location_id/employees/:employee_id/customers/:id(.:format)                            customers#show
-                                        PATCH  /locations/:location_id/employees/:employee_id/customers/:id(.:format)                            customers#update
-                                        PUT    /locations/:location_id/employees/:employee_id/customers/:id(.:format)                            customers#update
-                                        DELETE /locations/:location_id/employees/:employee_id/customers/:id(.:format)                            customers#destroy
-                     location_employees GET    /locations/:location_id/employees(.:format)                                                       employees#index
-                                        POST   /locations/:location_id/employees(.:format)                                                       employees#create
-                  new_location_employee GET    /locations/:location_id/employees/new(.:format)                                                   employees#new
-                 edit_location_employee GET    /locations/:location_id/employees/:id/edit(.:format)                                              employees#edit
-                      location_employee GET    /locations/:location_id/employees/:id(.:format)                                                   employees#show
-                                        PATCH  /locations/:location_id/employees/:id(.:format)                                                   employees#update
-                                        PUT    /locations/:location_id/employees/:id(.:format)                                                   employees#update
-                                        DELETE /locations/:location_id/employees/:id(.:format)                                                   employees#destroy
-                                        GET    /locations(.:format)                                                                              locations#index
-                                        POST   /locations(.:format)                                                                              locations#create
-                                        GET    /locations/new(.:format)                                                                          locations#new
-                                        GET    /locations/:id/edit(.:format)                                                                     locations#edit
-                                        GET    /locations/:id(.:format)                                                                          locations#show
-                                        PATCH  /locations/:id(.:format)                                                                          locations#update
-                                        PUT    /locations/:id(.:format)                                                                          locations#update
-                                        DELETE /locations/:id(.:format)                                                                          locations#destroy
-                                 Prefix Verb   URI Pattern                                                                                       Controller#Action
-                       new_user_session GET    /users/sign_in(.:format)                                                                          devise/sessions#new
-                           user_session POST   /users/sign_in(.:format)                                                                          devise/sessions#create
-                   destroy_user_session DELETE /users/sign_out(.:format)                                                                         devise/sessions#destroy
-                          user_password POST   /users/password(.:format)                                                                         devise/passwords#create
-                      new_user_password GET    /users/password/new(.:format)                                                                     devise/passwords#new
-                     edit_user_password GET    /users/password/edit(.:format)                                                                    devise/passwords#edit
-                                        PATCH  /users/password(.:format)                                                                         devise/passwords#update
-                                        PUT    /users/password(.:format)                                                                         devise/passwords#update
-               cancel_user_registration GET    /users/cancel(.:format)                                                                           devise/registrations#cancel
-                      user_registration POST   /users(.:format)                                                                                  devise/registrations#create
-                  new_user_registration GET    /users/sign_up(.:format)                                                                          devise/registrations#new
-                 edit_user_registration GET    /users/edit(.:format)                                                                             devise/registrations#edit
-                                        PATCH  /users(.:format)                                                                                  devise/registrations#update
-                                        PUT    /users(.:format)                                                                                  devise/registrations#update
-                                        DELETE /users(.:format)                                                                                  devise/registrations#destroy
-                                   root GET    /                                                                                                 welcome#index
-                                   home GET    /welcome/index(.:format)                                                                          welcome#index
-                               payments GET    /payments/index(.:format)                                                                         payments#index
-                          payments_show GET    /payments/show(.:format)                                                                          payments#show
-                           payments_new GET    /payments/new(.:format)                                                                           payments#new
-                          payments_edit GET    /payments/edit(.:format)                                                                          payments#edit
-                              customers GET    /customers/index(.:format)                                                                        customers#index
-                         customers_show GET    /customers/show(.:format)                                                                         customers#show
-                          customers_new GET    /customers/new(.:format)                                                                          customers#new
-                         customers_edit GET    /customers/edit(.:format)                                                                         customers#edit
-                                 orders GET    /orders/index(.:format)                                                                           orders#index
-                            orders_show GET    /orders/show(.:format)                                                                            orders#show
-                             orders_new GET    /orders/new(.:format)                                                                             orders#new
-                            orders_edit GET    /orders/edit(.:format)                                                                            orders#edit
-                               products GET    /products/index(.:format)                                                                         products#index
-                          products_show GET    /products/show(.:format)                                                                          products#show
-                           products_new GET    /products/new(.:format)                                                                           products#new
-                          products_edit GET    /products/edit(.:format)                                                                          products#edit
-                              employees GET    /employees/index(.:format)                                                                        employees#index
-                         employees_show GET    /employees/show(.:format)                                                                         employees#show
-                          employees_new GET    /employees/new(.:format)                                                                          employees#new
-                         employees_edit GET    /employees/edit(.:format)                                                                         employees#edit
-                            departments GET    /departments/index(.:format)                                                                      departments#index
-                       departments_show GET    /departments/show(.:format)                                                                       departments#show
-                        departments_new GET    /departments/new(.:format)                                                                        departments#new
-                       departments_edit GET    /departments/edit(.:format)                                                                       departments#edit
-                                pay_nav GET    /pay_nav/index(.:format)                                                                          pay_nav#index
-                               cust_nav GET    /cust_nav/index(.:format)                                                                         cust_nav#index
-                            dept_navbar GET    /dept_navbar/index(.:format)                                                                      dept_navbar#index
-                            empl_navbar GET    /empl_navbar/index(.:format)                                                                      empl_navbar#index
-                            prod_navbar GET    /prod_navbar/index(.:format)                                                                      prod_navbar#index
-                              locations GET    /locations(.:format)                                                                              locations#index
-                                        POST   /locations(.:format)                                                                              locations#create
-                           new_location GET    /locations/new(.:format)                                                                          locations#new
-                          edit_location GET    /locations/:id/edit(.:format)                                                                     locations#edit
-                               location GET    /locations/:id(.:format)                                                                          locations#show
-                                        PATCH  /locations/:id(.:format)                                                                          locations#update
-                                        PUT    /locations/:id(.:format)                                                                          locations#update
-                                        DELETE /locations/:id(.:format)                                                                          locations#destroy
-           location_department_products GET    /locations/:location_id/departments/:department_id/products(.:format)                             products#index
-                                        POST   /locations/:location_id/departments/:department_id/products(.:format)                             products#create
-        new_location_department_product GET    /locations/:location_id/departments/:department_id/products/new(.:format)                         products#new
-       edit_location_department_product GET    /locations/:location_id/departments/:department_id/products/:id/edit(.:format)                    products#edit
-            location_department_product GET    /locations/:location_id/departments/:department_id/products/:id(.:format)                         products#show
-                                        PATCH  /locations/:location_id/departments/:department_id/products/:id(.:format)                         products#update
-                                        PUT    /locations/:location_id/departments/:department_id/products/:id(.:format)                         products#update
-                                        DELETE /locations/:location_id/departments/:department_id/products/:id(.:format)                         products#destroy
-                   location_departments GET    /locations/:location_id/departments(.:format)                                                     departments#index
-                                        POST   /locations/:location_id/departments(.:format)                                                     departments#create
-                new_location_department GET    /locations/:location_id/departments/new(.:format)                                                 departments#new
-               edit_location_department GET    /locations/:location_id/departments/:id/edit(.:format)                                            departments#edit
-                    location_department GET    /locations/:location_id/departments/:id(.:format)                                                 departments#show
-                                        PATCH  /locations/:location_id/departments/:id(.:format)                                                 departments#update
-                                        PUT    /locations/:location_id/departments/:id(.:format)                                                 departments#update
-                                        DELETE /locations/:location_id/departments/:id(.:format)                                                 departments#destroy
-      location_employee_customer_orders GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/orders(.:format)            orders#index
-                                        POST   /locations/:location_id/employees/:employee_id/customers/:customer_id/orders(.:format)            orders#create
-   new_location_employee_customer_order GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/orders/new(.:format)        orders#new
-  edit_location_employee_customer_order GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/orders/:id/edit(.:format)   orders#edit
-       location_employee_customer_order GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/orders/:id(.:format)        orders#show
-                                        PATCH  /locations/:location_id/employees/:employee_id/customers/:customer_id/orders/:id(.:format)        orders#update
-                                        PUT    /locations/:location_id/employees/:employee_id/customers/:customer_id/orders/:id(.:format)        orders#update
-                                        DELETE /locations/:location_id/employees/:employee_id/customers/:customer_id/orders/:id(.:format)        orders#destroy
-    location_employee_customer_payments GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments(.:format)          payments#index
-                                        POST   /locations/:location_id/employees/:employee_id/customers/:customer_id/payments(.:format)          payments#create
- new_location_employee_customer_payment GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/new(.:format)      payments#new
-edit_location_employee_customer_payment GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id/edit(.:format) payments#edit
-     location_employee_customer_payment GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)      payments#show
-                                        PATCH  /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)      payments#update
-                                        PUT    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)      payments#update
-                                        DELETE /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)      payments#destroy
-            location_employee_customers GET    /locations/:location_id/employees/:employee_id/customers(.:format)                                customers#index
-                                        POST   /locations/:location_id/employees/:employee_id/customers(.:format)                                customers#create
-         new_location_employee_customer GET    /locations/:location_id/employees/:employee_id/customers/new(.:format)                            customers#new
-        edit_location_employee_customer GET    /locations/:location_id/employees/:employee_id/customers/:id/edit(.:format)                       customers#edit
-             location_employee_customer GET    /locations/:location_id/employees/:employee_id/customers/:id(.:format)                            customers#show
-                                        PATCH  /locations/:location_id/employees/:employee_id/customers/:id(.:format)                            customers#update
-                                        PUT    /locations/:location_id/employees/:employee_id/customers/:id(.:format)                            customers#update
-                                        DELETE /locations/:location_id/employees/:employee_id/customers/:id(.:format)                            customers#destroy
-                     location_employees GET    /locations/:location_id/employees(.:format)                                                       employees#index
-                                        POST   /locations/:location_id/employees(.:format)                                                       employees#create
-                  new_location_employee GET    /locations/:location_id/employees/new(.:format)                                                   employees#new
-                 edit_location_employee GET    /locations/:location_id/employees/:id/edit(.:format)                                              employees#edit
-                      location_employee GET    /locations/:location_id/employees/:id(.:format)                                                   employees#show
-                                        PATCH  /locations/:location_id/employees/:id(.:format)                                                   employees#update
-                                        PUT    /locations/:location_id/employees/:id(.:format)                                                   employees#update
-                                        DELETE /locations/:location_id/employees/:id(.:format)                                                   employees#destroy
-                                        GET    /locations(.:format)                                                                              locations#index
-                                        POST   /locations(.:format)                                                                              locations#create
-                                        GET    /locations/new(.:format)                                                                          locations#new
-                                        GET    /locations/:id/edit(.:format)                                                                     locations#edit
-                                        GET    /locations/:id(.:format)                                                                          locations#show
-                                        PATCH  /locations/:id(.:format)                                                                          locations#update
-                                        PUT    /locations/:id(.:format)                                                                          locations#update
-                                        DELETE /locations/:id(.:format)                                                                          locations#destroy
+                                       Prefix Verb   URI Pattern                                                                                                        Controller#Action
+                             new_user_session GET    /users/sign_in(.:format)                                                                                           devise/sessions#new
+                                 user_session POST   /users/sign_in(.:format)                                                                                           devise/sessions#create
+                         destroy_user_session DELETE /users/sign_out(.:format)                                                                                          devise/sessions#destroy
+                                user_password POST   /users/password(.:format)                                                                                          devise/passwords#create
+                            new_user_password GET    /users/password/new(.:format)                                                                                      devise/passwords#new
+                           edit_user_password GET    /users/password/edit(.:format)                                                                                     devise/passwords#edit
+                                              PATCH  /users/password(.:format)                                                                                          devise/passwords#update
+                                              PUT    /users/password(.:format)                                                                                          devise/passwords#update
+                     cancel_user_registration GET    /users/cancel(.:format)                                                                                            devise/registrations#cancel
+                            user_registration POST   /users(.:format)                                                                                                   devise/registrations#create
+                        new_user_registration GET    /users/sign_up(.:format)                                                                                           devise/registrations#new
+                       edit_user_registration GET    /users/edit(.:format)                                                                                              devise/registrations#edit
+                                              PATCH  /users(.:format)                                                                                                   devise/registrations#update
+                                              PUT    /users(.:format)                                                                                                   devise/registrations#update
+                                              DELETE /users(.:format)                                                                                                   devise/registrations#destroy
+                                         root GET    /                                                                                                                  entries#index {:id=>"1"}
+                                         home GET    /entries/index(.:format)                                                                                           entries#index {:id=>"1"}
+                                        users GET    /users(.:format)                                                                                                   users#index
+                                users_profile GET    /users/profile(.:format)                                                                                           users#profile
+                                      entries GET    /entries/index(.:format)                                                                                           entries#index
+                                 entries_show GET    /entries/show(.:format)                                                                                            entries#show
+                                        feeds GET    /feeds/index(.:format)                                                                                             feeds#index
+                                   feeds_show GET    /feeds/show(.:format)                                                                                              feeds#show
+                                    feeds_new GET    /feeds/new(.:format)                                                                                               feeds#new
+                                   feeds_edit GET    /feeds/edit(.:format)                                                                                              feeds#edit
+                                   users_show GET    /users/show(.:format)                                                                                              users#show
+                                     payments GET    /payments/index(.:format)                                                                                          payments#index
+                                payments_show GET    /payments/show(.:format)                                                                                           payments#show
+                                 payments_new GET    /payments/new(.:format)                                                                                            payments#new
+                                payments_edit GET    /payments/edit(.:format)                                                                                           payments#edit
+                                    customers GET    /customers/index(.:format)                                                                                         customers#index
+                               customers_show GET    /customers/show(.:format)                                                                                          customers#show
+                                customers_new GET    /customers/new(.:format)                                                                                           customers#new
+                               customers_edit GET    /customers/edit(.:format)                                                                                          customers#edit
+                                       orders GET    /orders/index(.:format)                                                                                            orders#index
+                                  orders_show GET    /orders/show(.:format)                                                                                             orders#show
+                                   orders_new GET    /orders/new(.:format)                                                                                              orders#new
+                                  orders_edit GET    /orders/edit(.:format)                                                                                             orders#edit
+                                     products GET    /products/index(.:format)                                                                                          products#index
+                                products_show GET    /products/show(.:format)                                                                                           products#show
+                                 products_new GET    /products/new(.:format)                                                                                            products#new
+                                products_edit GET    /products/edit(.:format)                                                                                           products#edit
+                                    employees GET    /employees/index(.:format)                                                                                         employees#index
+                               employees_show GET    /employees/show(.:format)                                                                                          employees#show
+                                employees_new GET    /employees/new(.:format)                                                                                           employees#new
+                               employees_edit GET    /employees/edit(.:format)                                                                                          employees#edit
+                                  departments GET    /departments/index(.:format)                                                                                       departments#index
+                             departments_show GET    /departments/show(.:format)                                                                                        departments#show
+                              departments_new GET    /departments/new(.:format)                                                                                         departments#new
+                             departments_edit GET    /departments/edit(.:format)                                                                                        departments#edit
+                                      pay_nav GET    /pay_nav/index(.:format)                                                                                           pay_nav#index
+                                     cust_nav GET    /cust_nav/index(.:format)                                                                                          cust_nav#index
+                                  dept_navbar GET    /dept_navbar/index(.:format)                                                                                       dept_navbar#index
+                                  empl_navbar GET    /empl_navbar/index(.:format)                                                                                       empl_navbar#index
+                                  prod_navbar GET    /prod_navbar/index(.:format)                                                                                       prod_navbar#index
+                                 order_navbar GET    /order_navbar/index(.:format)                                                                                      order_navbar#index
+                                       tweets GET    /tweets(.:format)                                                                                                  tweets#index
+                               profile_tweets GET    /profile/tweets(.:format)                                                                                          tweets#index
+                                              GET    /users(.:format)                                                                                                   users#index
+                                              POST   /users(.:format)                                                                                                   users#create
+                                     new_user GET    /users/new(.:format)                                                                                               users#new
+                                    edit_user GET    /users/:id/edit(.:format)                                                                                          users#edit
+                                         user GET    /users/:id(.:format)                                                                                               users#show
+                                              PATCH  /users/:id(.:format)                                                                                               users#update
+                                              PUT    /users/:id(.:format)                                                                                               users#update
+                                              DELETE /users/:id(.:format)                                                                                               users#destroy
+                                    locations GET    /locations(.:format)                                                                                               locations#index
+                                              POST   /locations(.:format)                                                                                               locations#create
+                                 new_location GET    /locations/new(.:format)                                                                                           locations#new
+                                edit_location GET    /locations/:id/edit(.:format)                                                                                      locations#edit
+                                     location GET    /locations/:id(.:format)                                                                                           locations#show
+                                              PATCH  /locations/:id(.:format)                                                                                           locations#update
+                                              PUT    /locations/:id(.:format)                                                                                           locations#update
+                                              DELETE /locations/:id(.:format)                                                                                           locations#destroy
+                                     searches GET    /searches(.:format)                                                                                                searches#index
+                                              POST   /searches(.:format)                                                                                                searches#create
+                                   new_search GET    /searches/new(.:format)                                                                                            searches#new
+                                  edit_search GET    /searches/:id/edit(.:format)                                                                                       searches#edit
+                                       search GET    /searches/:id(.:format)                                                                                            searches#show
+                                              PATCH  /searches/:id(.:format)                                                                                            searches#update
+                                              PUT    /searches/:id(.:format)                                                                                            searches#update
+                                              DELETE /searches/:id(.:format)                                                                                            searches#destroy
+           location_department_product_orders GET    /locations/:location_id/departments/:department_id/products/:product_id/orders(.:format)                           orders#index
+                                              POST   /locations/:location_id/departments/:department_id/products/:product_id/orders(.:format)                           orders#create
+        new_location_department_product_order GET    /locations/:location_id/departments/:department_id/products/:product_id/orders/new(.:format)                       orders#new
+       edit_location_department_product_order GET    /locations/:location_id/departments/:department_id/products/:product_id/orders/:id/edit(.:format)                  orders#edit
+            location_department_product_order GET    /locations/:location_id/departments/:department_id/products/:product_id/orders/:id(.:format)                       orders#show
+                                              PATCH  /locations/:location_id/departments/:department_id/products/:product_id/orders/:id(.:format)                       orders#update
+                                              PUT    /locations/:location_id/departments/:department_id/products/:product_id/orders/:id(.:format)                       orders#update
+                                              DELETE /locations/:location_id/departments/:department_id/products/:product_id/orders/:id(.:format)                       orders#destroy
+                 location_department_products GET    /locations/:location_id/departments/:department_id/products(.:format)                                              products#index
+                                              POST   /locations/:location_id/departments/:department_id/products(.:format)                                              products#create
+              new_location_department_product GET    /locations/:location_id/departments/:department_id/products/new(.:format)                                          products#new
+             edit_location_department_product GET    /locations/:location_id/departments/:department_id/products/:id/edit(.:format)                                     products#edit
+                  location_department_product GET    /locations/:location_id/departments/:department_id/products/:id(.:format)                                          products#show
+                                              PATCH  /locations/:location_id/departments/:department_id/products/:id(.:format)                                          products#update
+                                              PUT    /locations/:location_id/departments/:department_id/products/:id(.:format)                                          products#update
+                                              DELETE /locations/:location_id/departments/:department_id/products/:id(.:format)                                          products#destroy
+                         location_departments GET    /locations/:location_id/departments(.:format)                                                                      departments#index
+                                              POST   /locations/:location_id/departments(.:format)                                                                      departments#create
+                      new_location_department GET    /locations/:location_id/departments/new(.:format)                                                                  departments#new
+                     edit_location_department GET    /locations/:location_id/departments/:id/edit(.:format)                                                             departments#edit
+                          location_department GET    /locations/:location_id/departments/:id(.:format)                                                                  departments#show
+                                              PATCH  /locations/:location_id/departments/:id(.:format)                                                                  departments#update
+                                              PUT    /locations/:location_id/departments/:id(.:format)                                                                  departments#update
+                                              DELETE /locations/:location_id/departments/:id(.:format)                                                                  departments#destroy
+                   location_employee_comments GET    /locations/:location_id/employees/:employee_id/comments(.:format)                                                  comments#index
+                                              POST   /locations/:location_id/employees/:employee_id/comments(.:format)                                                  comments#create
+                new_location_employee_comment GET    /locations/:location_id/employees/:employee_id/comments/new(.:format)                                              comments#new
+               edit_location_employee_comment GET    /locations/:location_id/employees/:employee_id/comments/:id/edit(.:format)                                         comments#edit
+                    location_employee_comment GET    /locations/:location_id/employees/:employee_id/comments/:id(.:format)                                              comments#show
+                                              PATCH  /locations/:location_id/employees/:employee_id/comments/:id(.:format)                                              comments#update
+                                              PUT    /locations/:location_id/employees/:employee_id/comments/:id(.:format)                                              comments#update
+                                              DELETE /locations/:location_id/employees/:employee_id/comments/:id(.:format)                                              comments#destroy
+    location_employee_customer_order_products GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/orders/:order_id/products(.:format)          products#index
+                                              POST   /locations/:location_id/employees/:employee_id/customers/:customer_id/orders/:order_id/products(.:format)          products#create
+ new_location_employee_customer_order_product GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/orders/:order_id/products/new(.:format)      products#new
+edit_location_employee_customer_order_product GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/orders/:order_id/products/:id/edit(.:format) products#edit
+     location_employee_customer_order_product GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/orders/:order_id/products/:id(.:format)      products#show
+                                              PATCH  /locations/:location_id/employees/:employee_id/customers/:customer_id/orders/:order_id/products/:id(.:format)      products#update
+                                              PUT    /locations/:location_id/employees/:employee_id/customers/:customer_id/orders/:order_id/products/:id(.:format)      products#update
+                                              DELETE /locations/:location_id/employees/:employee_id/customers/:customer_id/orders/:order_id/products/:id(.:format)      products#destroy
+            location_employee_customer_orders GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/orders(.:format)                             orders#index
+                                              POST   /locations/:location_id/employees/:employee_id/customers/:customer_id/orders(.:format)                             orders#create
+         new_location_employee_customer_order GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/orders/new(.:format)                         orders#new
+        edit_location_employee_customer_order GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/orders/:id/edit(.:format)                    orders#edit
+             location_employee_customer_order GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/orders/:id(.:format)                         orders#show
+                                              PATCH  /locations/:location_id/employees/:employee_id/customers/:customer_id/orders/:id(.:format)                         orders#update
+                                              PUT    /locations/:location_id/employees/:employee_id/customers/:customer_id/orders/:id(.:format)                         orders#update
+                                              DELETE /locations/:location_id/employees/:employee_id/customers/:customer_id/orders/:id(.:format)                         orders#destroy
+          location_employee_customer_payments GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments(.:format)                           payments#index
+                                              POST   /locations/:location_id/employees/:employee_id/customers/:customer_id/payments(.:format)                           payments#create
+       new_location_employee_customer_payment GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/new(.:format)                       payments#new
+      edit_location_employee_customer_payment GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id/edit(.:format)                  payments#edit
+           location_employee_customer_payment GET    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)                       payments#show
+                                              PATCH  /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)                       payments#update
+                                              PUT    /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)                       payments#update
+                                              DELETE /locations/:location_id/employees/:employee_id/customers/:customer_id/payments/:id(.:format)                       payments#destroy
+                  location_employee_customers GET    /locations/:location_id/employees/:employee_id/customers(.:format)                                                 customers#index
+                                              POST   /locations/:location_id/employees/:employee_id/customers(.:format)                                                 customers#create
+               new_location_employee_customer GET    /locations/:location_id/employees/:employee_id/customers/new(.:format)                                             customers#new
+              edit_location_employee_customer GET    /locations/:location_id/employees/:employee_id/customers/:id/edit(.:format)                                        customers#edit
+                   location_employee_customer GET    /locations/:location_id/employees/:employee_id/customers/:id(.:format)                                             customers#show
+                                              PATCH  /locations/:location_id/employees/:employee_id/customers/:id(.:format)                                             customers#update
+                                              PUT    /locations/:location_id/employees/:employee_id/customers/:id(.:format)                                             customers#update
+                                              DELETE /locations/:location_id/employees/:employee_id/customers/:id(.:format)                                             customers#destroy
+                           location_employees GET    /locations/:location_id/employees(.:format)                                                                        employees#index
+                                              POST   /locations/:location_id/employees(.:format)                                                                        employees#create
+                        new_location_employee GET    /locations/:location_id/employees/new(.:format)                                                                    employees#new
+                       edit_location_employee GET    /locations/:location_id/employees/:id/edit(.:format)                                                               employees#edit
+                            location_employee GET    /locations/:location_id/employees/:id(.:format)                                                                    employees#show
+                                              PATCH  /locations/:location_id/employees/:id(.:format)                                                                    employees#update
+                                              PUT    /locations/:location_id/employees/:id(.:format)                                                                    employees#update
+                                              DELETE /locations/:location_id/employees/:id(.:format)                                                                    employees#destroy
+                                              GET    /locations(.:format)                                                                                               locations#index
+                                              POST   /locations(.:format)                                                                                               locations#create
+                                              GET    /locations/new(.:format)                                                                                           locations#new
+                                              GET    /locations/:id/edit(.:format)                                                                                      locations#edit
+                                              GET    /locations/:id(.:format)                                                                                           locations#show
+                                              PATCH  /locations/:id(.:format)                                                                                           locations#update
+                                              PUT    /locations/:id(.:format)                                                                                           locations#update
+                                              DELETE /locations/:id(.:format)                                                                                           locations#destroy
+                                              GET    /feeds/:id/entries(.:format)                                                                                       entries#index
+                                        entry GET    /feeds/:id/entries/:id(.:format)                                                                                   entries#show
+                                              GET    /feeds(.:format)                                                                                                   feeds#index
+                                              POST   /feeds(.:format)                                                                                                   feeds#create
+                                     new_feed GET    /feeds/new(.:format)                                                                                               feeds#new
+                                    edit_feed GET    /feeds/:id/edit(.:format)                                                                                          feeds#edit
+                                         feed GET    /feeds/:id(.:format)                                                                                               feeds#show
+                                              PATCH  /feeds/:id(.:format)                                                                                               feeds#update
+                                              PUT    /feeds/:id(.:format)                                                                                               feeds#update
+                                              DELETE /feeds/:id(.:format)                                                                                               feeds#destroy
