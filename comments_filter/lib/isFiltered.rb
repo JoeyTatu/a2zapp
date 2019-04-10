@@ -8,9 +8,6 @@ Class IsFiltered
       
       @not_in_comment = swear.downcase.split - @comment
       @not_in_comment.empty?
-      
-    end
-    
     
     if @result.count > 0
       @safe = false
@@ -19,6 +16,9 @@ Class IsFiltered
     end
     
     return @safe
+    
+  end
+  
   
 end
     
