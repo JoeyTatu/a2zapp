@@ -273,7 +273,7 @@ DEPENDENCIES
   momentjs-rails (>= 2.9.0)
   paperclip (~> 4.1.1)
   pg (~> 0.15)
-  rails (= 4.2.5)
+  rails (~> 4.2.5)
   rails_12factor
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
