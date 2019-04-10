@@ -40,6 +40,8 @@ gem 'twitter'
 
 gem 'CommentsFilter', '~> 0.0.0'
 
+gem 'heroku'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
